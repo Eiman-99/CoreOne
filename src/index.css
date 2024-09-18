@@ -51,12 +51,39 @@ ul{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  max-width: 90%;
   margin: 0 auto;
+  position: relative;
 }
 
 nav img{
   width: 1rem;
 }
 
+/* Toggle */
+
+.nav-btn {
+  font-size: 1.4rem;
+  display: none;
+}
+
+.responsive-nav {
+  position: fixed;
+  top: o;
+  width: 100%;
+  animation: dropMenu 1s forwards;
+}
+
+.primary-list.active {
+  display: flex; 
+}
+
+/* Latest Section */
+.hero{
+  text-align: center;
+}
+
+.hero img{
+  max-width: 35rem;
+}
 
