@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { Categories } from "../categories";
+import { Link } from "react-router-dom";
 
 import {
   NextButton,
@@ -65,9 +66,14 @@ const EmblaCarousel = ({ categories, options }) => {
         <div className="embla__container">
           {Categories.map((item, index) => (
             <div className="embla__slide">
-              <div className="embla__slide">
-                <img src={item.img} />
-              </div>
+              <Link to={item.path}>
+                <div className="img-container">
+                  <img src={item.img} />
+                  <div className="overlay">
+                    <p>{item.name}</p>
+                  </div>
+                </div>
+              </Link>
             </div>
           ))}
         </div>
