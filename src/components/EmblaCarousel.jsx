@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
-import { Categories } from "../pages/Home";
+import { Categories } from "../categories";
 
 import {
   NextButton,
