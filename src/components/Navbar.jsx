@@ -23,7 +23,7 @@ export default function Navbar() {
               <a>Latest</a>
             </li>
             <li>
-              <a>Categories</a>
+              <a href="#categories">Categories</a>
             </li>
             <li>
               <a>About</a>
