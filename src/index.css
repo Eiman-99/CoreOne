@@ -11,10 +11,11 @@
 /* body styling */
 
 body {
-  background: #000;
   color: #fff;
   line-height: 1.6;
   font-family: 'poppins';
+  background: linear-gradient(20deg, #000000, #000000, #181818, #0d0d0d, #1a1919);
+  overflow: hidden;
 }
 
 a{
@@ -86,7 +87,8 @@ nav img{
 }
 
 .hero img{
-  max-width: 35rem;
+  max-width: 17rem;
+  transform: rotate(-30deg);
 }
 
 /* .hero .title{
@@ -107,6 +109,7 @@ nav img{
   position: absolute;
   bottom: 6rem;
   left: 6rem;
+  z-index: 1;
 }
 
 .hero .productName p{
