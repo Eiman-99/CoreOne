@@ -38,7 +38,7 @@ li{
 
 .primary-list{
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   font-weight: 300;
   font-size: smaller;
 }
@@ -72,6 +72,7 @@ nav img{
   top: o;
   width: 100%;
   animation: dropMenu 1s forwards;
+  z-index: 10;
 }
 
 .primary-list.active {
@@ -81,9 +82,41 @@ nav img{
 /* Latest Section */
 .hero{
   text-align: center;
+  position: relative;
 }
 
 .hero img{
   max-width: 35rem;
+}
+
+/* .hero .title{
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+.hero .line2{
+  position: absolute;
+  top: 6.7rem;
+  left: 5rem;
+} */
+
+.hero .productName{
+  position: absolute;
+  bottom: 6rem;
+  left: 6rem;
+}
+
+.hero .productName p{
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.hero .productName h4{
+  margin-left: 0.5rem;
+  display: inline;
+  font-weight: 300;
 }
 

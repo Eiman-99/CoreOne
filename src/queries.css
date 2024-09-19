@@ -4,7 +4,7 @@
     }
   
     .responsive-nav {
-      background-color: #000000;
+      background-color: #0000008e;
       backdrop-filter: blur(10px);
     }
 
@@ -24,6 +24,7 @@
       transition: height 1s ease;
       display: none; 
       animation: dropList 2s forwards;
+      gap: 1rem;
     }
 
     @keyframes dropList {
