@@ -5,10 +5,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import IPhones from "./pages/IPhones";
 import Macbooks from "./pages/Macbooks";
 
-// import { useState } from "react";
-
-// const [count, setCount] = useState(0);
-
 function App() {
   return (
     <BrowserRouter>
