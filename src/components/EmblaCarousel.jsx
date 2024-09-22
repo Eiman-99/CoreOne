@@ -78,8 +78,7 @@ const EmblaCarousel = ({ options }) => {
             <div className="embla__slide" key={item.id}>
               <Link to={`/category/${item.id}`}>
                 <div className="img-container">
-                  {/* <h1>{item.categoryName}</h1> */}
-                  <img src={item.image} />
+                  <img src={item.image} alt="categoty-image" />
                   <div className="overlay">
                     <p>{item.categoryName}</p>
                   </div>
