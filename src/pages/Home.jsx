@@ -22,7 +22,7 @@ export default function Home() {
           <h4>Now Available</h4>
         </div>
         <div className="latest-release">
-          <img src={latestphone} />
+          <img src={latestphone} alt="hero-image" />
         </div>
       </section>
       <section id="categories">
