@@ -18,7 +18,7 @@
           {
             "id": 2,
             "name": "iPhone 12",
-            "thumbnail":"https://drive.google.com/file/d/1tCflKirN52o6DtGO23XnK5MNXcRX0U1d/view?usp=sharing",
+            "thumbnail":"/images/iphones/iphone12-cover.png",
             "display": "6.1-inch Super Retina XDR display",
             "processor": "A14 Bionic chip",
             "storage": [
@@ -117,7 +117,7 @@
       },
       { "id":"200",
         "categoryName": "Mac",
-        "image":"/images/macbooks.jpg",
+        "image":"https://drive.google.com/file/d/1tCflKirN52o6DtGO23XnK5MNXcRX0U1d/view?usp=sharing",
         "products": [
           {
             "id": 10,
@@ -163,7 +163,7 @@
       },
       { "id":"300",
         "categoryName": "iPad",
-        "image":"/images/ipads.jpg",
+        "image":"https://drive.google.com/file/d/1fKZ4jAc1_nocRV6f8iHt5ZdXZAJJC34i/view?usp=sharing",
         "products": [
           {
             "id": 14,
@@ -214,7 +214,7 @@
       },
       { "id":"400",
         "categoryName": "Watch",
-        "image":"/images/watches.jpg",
+        "image":"/https://drive.google.com/file/d/1nsudG3DaOAl2lzx7onBE2xH7NDORYP2O/view?usp=sharing",
         "products": [
           {
             "id": 18,
@@ -252,7 +252,7 @@
       },
       { "id":"500",
         "categoryName": "AirPods",
-        "image":"/images/airpods.jpg",
+        "image":"https://drive.google.com/file/d/1yB7guvJsN8t4fV8UEAdUo6BdcZ8ethsD/view?usp=sharing",
         "products": [
           {
             "id": 22,
