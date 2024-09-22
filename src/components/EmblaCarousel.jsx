@@ -74,22 +74,16 @@ const EmblaCarousel = ({ options }) => {
     <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {Categories.map((item, index) => (
+          {categories.map((item, index) => (
             <div className="embla__slide" key={item.id}>
-              <div className="img-container">
-                <img src={item.img} alt="categoty-image" />
-                <div className="overlay">
-                  <p>{item.name}</p>
-                </div>
-              </div>
-              {/* <Link to={`/category/${item.id}`}>
+              <Link to={`/category/${item.id}`}>
                 <div className="img-container">
-                  <img src={item.image} alt="categoty-image" />
+                  <img src={item.image} alt={`${item.categoryName}`} />
                   <div className="overlay">
                     <p>{item.categoryName}</p>
                   </div>
                 </div>
-              </Link> */}
+              </Link>
             </div>
           ))}
         </div>
