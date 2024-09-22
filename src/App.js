@@ -2,8 +2,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import IPhones from "./pages/IPhones";
-import Macbooks from "./pages/Macbooks";
+import CategoryPage from "./pages/CategoryPage";
 
 function App() {
   return (
@@ -12,8 +11,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/iphones" element={<IPhones />} />
-          <Route path="/macbooks" element={<Macbooks />} />
+          <Route path="/category/:id" element={<CategoryPage />} />
         </Routes>
       </div>
     </BrowserRouter>

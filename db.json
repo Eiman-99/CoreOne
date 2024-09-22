@@ -1,0 +1,289 @@
+{
+    "categories": [
+      { "id":"100",
+        "categoryName": "iPhone",
+        "image":"/images/iphones.jpg",
+        "products": [
+          {
+            "id": 1,
+            "name": "iPhone 11",
+            "thumbnail":"/images/iphones/iphone11-cover.png",
+            "display": "6.1-inch Liquid Retina HD display",
+            "processor": "A13 Bionic chip",
+            "storage": [
+                {"size": "128GB", "price": 449},
+                {"size": "256GB", "price": 520}
+          ]
+          },
+          {
+            "id": 2,
+            "name": "iPhone 12",
+            "thumbnail":"/images/iphones/iphone12-cover.png",
+            "display": "6.1-inch Super Retina XDR display",
+            "processor": "A14 Bionic chip",
+            "storage": [
+              {"size": "128GB", "price": 649},
+              {"size": "256GB", "price": 720}
+            ]
+          },
+          {
+            "id": 3,
+            "name": "iPhone 12 Pro",
+            "thumbnail":"/images/iphones/iphone12pro-cover.png",
+            "display": "6.1-inch Super Retina XDR display",
+            "processor": "A14 Bionic chip",
+            "storage": [
+              {"size": "128GB", "price": 999},
+              {"size": "256GB", "price": 1099},
+              {"size": "512GB", "price": 1299}
+            ]
+          },
+          {
+            "id": 4,
+            "name": "iPhone 13",
+            "thumbnail":"/images/iphones/iphone13-cover.png",
+            "display": "6.1-inch Super Retina XDR display",
+            "processor": "A15 Bionic chip",
+            "storage": [
+              {"size": "128GB", "price": 799},
+              {"size": "256GB", "price": 899},
+              {"size": "512GB", "price": 1099}
+            ]
+          },
+          {
+            "id": 5,
+            "name": "iPhone 13 Pro",
+            "thumbnail":"/images/iphones/iphone13pro-cover.png",
+            "display": "6.1-inch Super Retina XDR display",
+            "processor": "A15 Bionic chip",
+            "storage": [
+              {"size": "128GB", "price": 999},
+              {"size": "256GB", "price": 1099},
+              {"size": "512GB", "price": 1299},
+              {"size": "1TB", "price": 1499}
+            ]
+          },
+          {
+            "id": 6,
+            "name": "iPhone 14",
+            "thumbnail":"/images/iphones/iphone14-cover.png",
+            "display": "6.1-inch Super Retina XDR display",
+            "processor": "A15 Bionic chip",
+            "storage": [
+              {"size": "128GB", "price": 799},
+              {"size": "256GB", "price": 899},
+              {"size": "512GB", "price": 1099}
+            ]
+          },
+          {
+            "id": 7,
+            "name": "iPhone 14 Pro",
+            "thumbnail":"/images/iphones/iphone14pro-cover.png",
+            "display": "6.1-inch Super Retina XDR display",
+            "processor": "A16 Bionic chip",
+            "storage": [
+              {"size": "128GB", "price": 999},
+              {"size": "256GB", "price": 1099},
+              {"size": "512GB", "price": 1299},
+              {"size": "1TB", "price": 1499}
+            ]
+          },
+          {
+            "id": 8,
+            "name": "iPhone 15",
+            "thumbnail":"/images/iphones/iphone15-cover.png",
+            "display": "6.1-inch Super Retina XDR display",
+            "processor": "A16 Bionic chip",
+            "storage": [
+              {"size": "128GB", "price": 799},
+              {"size": "256GB", "price": 899},
+              {"size": "512GB", "price": 1099}
+            ]
+          },
+          {
+            "id": 9,
+            "name": "iPhone 15 Pro",
+            "thumbnail":"/images/iphones/iphone15pro-cover.png",
+            "display": "6.1-inch Super Retina XDR display",
+            "processor": "A17 Pro chip",
+            "storage": [
+              {"size": "128GB", "price": 999},
+              {"size": "256GB", "price": 1099},
+              {"size": "512GB", "price": 1299},
+              {"size": "1TB", "price": 1499}
+            ]
+          }
+        ]
+      },
+      { "id":"200",
+        "categoryName": "Mac",
+        "image":"/images/macbooks.jpg",
+        "products": [
+          {
+            "id": 10,
+            "name": "MacBook Air (M1, 2020)",
+            "display": "13.3-inch Retina display",
+            "processor": "Apple M1 chip",
+            "storage": [
+              {"size": "256GB", "price": 999},
+              {"size": "512GB", "price": 1249}
+            ]
+          },
+          {
+            "id": 11,
+            "name": "MacBook Air (M2, 2022)",
+            "display": "13.6-inch Liquid Retina display",
+            "processor": "Apple M2 chip",
+            "storage": [
+              {"size": "256GB", "price": 1199},
+              {"size": "512GB", "price": 1449}
+            ]
+          },
+          {
+            "id": 12,
+            "name": "MacBook Pro 14-inch (M1, 2021)",
+            "display": "14.2-inch Liquid Retina XDR display",
+            "processor": "Apple M1 Pro chip",
+            "storage": [
+              {"size": "512GB", "price": 1999},
+              {"size": "1TB", "price": 2249}
+            ]
+          },
+          {
+            "id": 13,
+            "name": "MacBook Pro 16-inch (M1, 2021)",
+            "display": "16.2-inch Liquid Retina XDR display",
+            "processor": "Apple M1 Pro chip",
+            "storage": [
+              {"size": "512GB", "price": 2499},
+              {"size": "1TB", "price": 2749}
+            ]
+          }
+        ]
+      },
+      { "id":"300",
+        "categoryName": "iPad",
+        "image":"/images/ipads.jpg",
+        "products": [
+          {
+            "id": 14,
+            "name": "iPad (9th generation)",
+            "display": "10.2-inch Retina display",
+            "processor": "A13 Bionic chip",
+            "storage": [
+              {"size": "64GB", "price": 329},
+              {"size": "256GB", "price": 479}
+            ]
+          },
+          {
+            "id": 15,
+            "name": "iPad Air (5th generation)",
+            "display": "10.9-inch Liquid Retina display",
+            "processor": "Apple M1 chip",
+            "storage": [
+              {"size": "256GB", "price": 749},
+              {"size": "512GB", "price": 849}
+            ]
+          },
+          {
+            "id": 16,
+            "name": "iPad Pro (11-inch, 3rd generation)",
+            "display": "11-inch Liquid Retina display",
+            "processor": "Apple M1 chip",
+            "storage": [
+              {"size": "128GB", "price": 799},
+              {"size": "256GB", "price": 899},
+              {"size": "512GB", "price": 1099},
+              {"size": "1TB", "price": 1299}
+            ]
+          },
+          {
+            "id": 17,
+            "name": "iPad Pro (12.9-inch, 5th generation)",
+            "display": "12.9-inch Liquid Retina XDR display",
+            "processor": "Apple M1 chip",
+            "storage": [
+              {"size": "128GB", "price": 1099},
+              {"size": "256GB", "price": 1199},
+              {"size": "512GB", "price": 1399},
+              {"size": "1TB", "price": 1599},
+              {"size": "2TB", "price": 1799}
+            ]
+          }
+        ]
+      },
+      { "id":"400",
+        "categoryName": "Watch",
+        "image":"/images/watches.jpg",
+        "products": [
+          {
+            "id": 18,
+            "name": "Apple Watch Series 7",
+            "display": "41mm/45mm Always-On Retina display",
+            "processor": "S7 chip",
+            "storage": "32GB",
+            "price": 399
+          },
+          {
+            "id": 19,
+            "name": "Apple Watch Series 8",
+            "display": "41mm/45mm Always-On Retina display",
+            "processor": "S8 chip",
+            "storage": "32GB",
+            "price": 399
+          },
+          {
+            "id": 20,
+            "name": "Apple Watch SE (2nd generation)",
+            "display": "40mm/44mm Retina display",
+            "processor": "S8 chip",
+            "storage": "32GB",
+            "price": 249
+          },
+          {
+            "id": 21,
+            "name": "Apple Watch Ultra",
+            "display": "49mm Always-On Retina display",
+            "processor": "S8 chip",
+            "storage": "32GB",
+            "price": 799
+          }
+        ]
+      },
+      { "id":"500",
+        "categoryName": "AirPods",
+        "image":"/images/airpods.jpg",
+        "products": [
+          {
+            "id": 22,
+            "name": "AirPods (2nd generation)",
+            "features": "Automatic switching, Spatial audio",
+            "batteryLife": "Up to 24 hours with charging case",
+            "price": 129
+          },
+          {
+            "id": 23,
+            "name": "AirPods (3rd generation)",
+            "features": "Spatial audio, Adaptive EQ",
+            "batteryLife": "Up to 30 hours with charging case",
+            "price": 179
+          },
+          {
+            "id": 24,
+            "name": "AirPods Pro (2nd generation)",
+            "features": "Active Noise Cancellation, Transparency mode",
+            "batteryLife": "Up to 30 hours with charging case",
+            "price": 249
+          },
+          {
+            "id": 25,
+            "name": "AirPods Max",
+            "features": "Active Noise Cancellation, Spatial audio",
+            "batteryLife": "Up to 20 hours",
+            "price": 549
+          }
+        ]
+      }
+    ]
+  }
+  

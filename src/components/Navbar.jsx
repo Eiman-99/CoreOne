@@ -3,10 +3,11 @@ import cart from "../assets/cart.png";
 import login from "../assets/login.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const navRef = useRef();
-  const [isToggled, setIsToggled] = useState(false); // Initialize to false for closed state
+  const [isToggled, setIsToggled] = useState(false);
 
   function showResNavbar() {
     setIsToggled(!isToggled);

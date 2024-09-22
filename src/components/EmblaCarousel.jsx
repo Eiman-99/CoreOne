@@ -3,6 +3,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { Categories } from "../categories";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CategoryContext } from "../App";
 
 import {
   NextButton,
@@ -10,7 +12,9 @@ import {
   usePrevNextButtons,
 } from "./EmblaCarouselArrowButtons";
 
-const EmblaCarousel = ({ categories, options }) => {
+const EmblaCarousel = ({ options }) => {
+  const [categories, setCategories] = useState([]);
+
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     AutoScroll({ playOnInit: false }),
   ]);
@@ -60,17 +64,24 @@ const EmblaCarousel = ({ categories, options }) => {
       .on("reInit", () => setIsPlaying(autoScroll.isPlaying()));
   }, [emblaApi]);
 
+  useEffect(() => {
+    fetch(`http://localhost:8000/categories`)
+      .then((res) => res.json())
+      .then((categories) => setCategories(categories));
+  }, []);
+
   return (
     <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {Categories.map((item, index) => (
-            <div className="embla__slide">
-              <Link to={item.path}>
+          {categories.map((item, index) => (
+            <div className="embla__slide" key={item.id}>
+              <Link to={`/category/${item.id}`}>
                 <div className="img-container">
-                  <img src={item.img} />
+                  {/* <h1>{item.categoryName}</h1> */}
+                  <img src={item.image} />
                   <div className="overlay">
-                    <p>{item.name}</p>
+                    <p>{item.categoryName}</p>
                   </div>
                 </div>
               </Link>

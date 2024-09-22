@@ -9,14 +9,13 @@
 }
 
 html{
-  background: linear-gradient(20deg, #000000, #000000, #020202, #151515, #1a1919);
+  background: #000000;
   scroll-behavior: smooth;
 }
 
 /* body styling */
-
 body {
-  /* background: #222224; */
+  background: linear-gradient(20deg, #000000, #000000, #020202, #151515, #1a1919);
   color: #fff;
   line-height: 1.6;
   font-family: 'poppins';
@@ -272,7 +271,39 @@ nav img{
   min-width: 8.4rem;
 }
 
-/* iphones */
-.iphones{
-  height: 100vh;
+/* Category page */
+.categoryPage{
+  max-width: 100vw;
+  /* height: 91vh; */
+}
+
+.category-container{
+  max-width: 85%;
+  height: auto;
+  margin: 2rem auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.card-container{
+  height: 20rem;
+  width: 15rem;
+  border: 1px solid #4e4e4e;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container img{
+ max-width: 10rem;
+}
+
+.card-container p{
+  margin-top: 2rem;
 }
