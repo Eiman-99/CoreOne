@@ -2,7 +2,7 @@
     "categories": [
       { "id":"100",
         "categoryName": "iPhone",
-        "image":"https://drive.google.com/file/d/1FULaAPK1YKr5y7ddpOdh0S-25DDp1yTv/view?usp=sharing",
+        "image":"/images/iphones.jpg",
         "products": [
           {
             "id": 1,
@@ -117,7 +117,7 @@
       },
       { "id":"200",
         "categoryName": "Mac",
-        "image":"https://drive.google.com/file/d/1tCflKirN52o6DtGO23XnK5MNXcRX0U1d/view?usp=sharing",
+        "image":"/images/macbooks.jpg",
         "products": [
           {
             "id": 10,
@@ -163,7 +163,7 @@
       },
       { "id":"300",
         "categoryName": "iPad",
-        "image":"https://drive.google.com/file/d/1fKZ4jAc1_nocRV6f8iHt5ZdXZAJJC34i/view?usp=sharing",
+        "image":"/images/ipads.jpg",
         "products": [
           {
             "id": 14,
@@ -214,7 +214,7 @@
       },
       { "id":"400",
         "categoryName": "Watch",
-        "image":"/https://drive.google.com/file/d/1nsudG3DaOAl2lzx7onBE2xH7NDORYP2O/view?usp=sharing",
+        "image":"/images/watches.jpg",
         "products": [
           {
             "id": 18,
@@ -252,7 +252,7 @@
       },
       { "id":"500",
         "categoryName": "AirPods",
-        "image":"https://drive.google.com/file/d/1yB7guvJsN8t4fV8UEAdUo6BdcZ8ethsD/view?usp=sharing",
+        "image":"/images/airpods.jpg",
         "products": [
           {
             "id": 22,
