@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getStorage } from "firebase/storage";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB4rd2Jawd8u0RbtqxB4aOCJwxaXoVI3B0",
@@ -14,4 +14,19 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-export const storage = getStorage(app);
+
+const storage = getStorage();
+
+// Reference to the image in Firebase Storage
+const imageRef = ref(storage, "path/to/your/image.jpg");
+
+// Get the download URL
+getDownloadURL(imageRef)
+  .then((url) => {
+    // Insert the image into an <img> element dynamically
+    const img = document.getElementById("categoryImage");
+    img.src = url;
+  })
+  .catch((error) => {
+    console.error("Error fetching image URL:", error);
+  });
