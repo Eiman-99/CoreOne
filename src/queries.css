@@ -67,6 +67,9 @@
   .hero .productName p{
     font-size: 1.9rem;
   }
+  .hero img{
+    max-width: 15rem;
+  }
 }
 
 
@@ -85,7 +88,7 @@
     .embla {
       max-width: 38rem;
     }
-
+    
 }
 
 @media (max-width: 645px) {
@@ -113,7 +116,31 @@
     .hero .productName h4{
       font-size: 0.6rem;
     }
+
+    .hero img{
+      max-width: 12rem;
+    }
+    .hero .productName{
+      bottom: 20%;
+      left: 10%;
+    }
+   
   }
+
+  @media (max-width: 400px) {
+    .hero img{
+      max-width: 10rem;
+    }
+  }
+
+  @media (max-width: 345px) {
+    .hero img{
+      max-width: 40%;
+    }
+  }
+
+
+  
     
   
   
