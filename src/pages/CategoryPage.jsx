@@ -8,7 +8,7 @@ export default function CategoryPage() {
   const [currentCategory, setCurrentCategory] = useState(null);
 
   function getCategory() {
-    fetch(`http://localhost:8000/categories`)
+    fetch(`https://json-sever-vercel.vercel.app/categories`)
       .then((res) => res.json())
       .then((categories) => {
         const category = categories.find((category) => category.id == id);

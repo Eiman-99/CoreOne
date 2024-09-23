@@ -65,7 +65,7 @@ const EmblaCarousel = ({ options }) => {
   }, [emblaApi]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/categories`)
+    fetch(`https://json-sever-vercel.vercel.app/categories`)
       .then((res) => res.json())
       .then((categories) => setCategories(categories));
   }, []);
