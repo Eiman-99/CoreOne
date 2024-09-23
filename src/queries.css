@@ -40,6 +40,38 @@
       display: flex; 
     }
    */
-    
+
+   @media (max-width: 768px) {
+    .embla__slide {
+      flex: 0 0 40%;
+    }
+
+    .embla {
+      max-width: 38rem;
+    }
   }
+
+  .embla__container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    margin-left: calc(var(--slide-spacing) * -1);
+  }
+}
+   @media (max-width: 576px) {
+    .embla__slide {
+      flex: 0 0 60%;
+    }
+
+    .embla {
+      max-width: 25rem;
+    }
+  }
+
+  .embla__container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    margin-left: calc(var(--slide-spacing) * -1);
+  }
+    
+  
   
