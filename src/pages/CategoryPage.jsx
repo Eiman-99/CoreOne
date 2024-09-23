@@ -7,15 +7,18 @@ export default function CategoryPage() {
   const { id } = useParams();
   const [currentCategory, setCurrentCategory] = useState(null);
 
-  // fetching the categories and filter them based on the id received from the URL
-  useEffect(() => {
+  function getCategory() {
     fetch(`http://localhost:8000/categories`)
       .then((res) => res.json())
       .then((categories) => {
         const category = categories.find((category) => category.id == id);
         setCurrentCategory(category);
-      })
-      .catch((error) => console.error("Error fetching categories:", error));
+      });
+  }
+
+  // fetching the categories and filter them based on the id received from the URL
+  useEffect(() => {
+    getCategory();
   }, [id]);
 
   if (!currentCategory) {

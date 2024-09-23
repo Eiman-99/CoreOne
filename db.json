@@ -2,7 +2,7 @@
     "categories": [
       { "id":"100",
         "categoryName": "iPhone",
-        "image":"/images/iphones.jpg",
+        "image":"https://firebasestorage.googleapis.com/v0/b/coreone-bd944.appspot.com/o/iphones.jpg?alt=media&token=7257f9fe-3c26-47d4-a93e-14509aa37265",
         "products": [
           {
             "id": 1,
