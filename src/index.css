@@ -354,14 +354,14 @@ nav img{
 }
 
 .footer-content {
+  margin: auto;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.footer-section {
-  width: 19rem;
-}
+
   
 .footer-section img {
   width: 1rem;
@@ -417,7 +417,6 @@ nav img{
 }
 
 .footer-bottom {
-  text-align: center;
   padding-top: 20px;
   border-top: 1px solid #333;
   margin-top: 20px;
