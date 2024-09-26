@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-section tradeline">
+        <div className="footer-section">
           <h3>Coreone Stores</h3>
           <p>
             <a href="#">About us</a>
@@ -43,7 +43,7 @@ export default function Footer() {
             17985
           </h3>
           <p>
-            <a href="mailto:sales@tradelinestores.com">sales@coreone.com</a>
+            <a>sales@coreone.com</a>
           </p>
           <p>
             Polygon, Sodic West,

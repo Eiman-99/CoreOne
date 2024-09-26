@@ -349,7 +349,7 @@ nav img{
 .footer {
   background-color: #000000;
   color: #ccc;
-  padding: 2rem 9rem;
+  padding: 2rem 4rem;
   border-top: 1px solid #232323;
 }
 
@@ -360,7 +360,7 @@ nav img{
 }
 
 .footer-section {
-  width: 17rem;
+  width: 19rem;
 }
   
 .footer-section img {
