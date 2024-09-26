@@ -33,6 +33,7 @@ a{
   -webkit-text-fill-color: transparent;
   font-size: 20px;
   font-weight: 400;
+  margin-left: 0.5rem;
 }
 
 li{
@@ -49,6 +50,7 @@ li{
 
 ul{
   display: flex;
+  align-items: center;
 }
 
 .navbar{
@@ -58,6 +60,29 @@ ul{
   max-width: 90%;
   margin: 0 auto;
   position: relative;
+  padding: 0.7rem 2rem 0 2rem;
+}
+
+.navbar .premium{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.2rem;
+  margin-left: 2rem;
+}
+
+.apple{
+  width: 1.7rem;
+}
+
+.premium p{
+  width: 5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  font-weight: 300;
 }
 
 nav img{
@@ -299,12 +324,133 @@ nav img{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.card-container .img-container{
+  width: 70%;
+  height: 11rem;
+  display: flex;
+  align-items: center;
+  justify-self:center ;
 }
 
 .card-container img{
- max-width: 10rem;
+  max-width: 100%;
 }
 
 .card-container p{
   margin-top: 2rem;
 }
+
+
+/* Footer */
+.footer {
+  background-color: #000000;
+  color: #ccc;
+  padding: 2rem 9rem;
+  border-top: 1px solid #232323;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  width: 17rem;
+}
+  
+.footer-section img {
+  width: 1rem;
+  margin-right: 0.5rem;
+}
+
+.footer-section h3 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.footer-section p, a{
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+  font-weight: 300;
+}
+
+.footer-section a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #fff;
+}
+
+.mobile-app{
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-app p{
+  display: inline;
+  margin-left: 0.5rem;
+}
+
+.mobile-app a{
+  padding: 0.7rem 0.5rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  width: 8rem;
+  border: 1px solid #232323;
+}
+
+.mobile-app a:hover{
+  background: #232323;
+}
+
+.newsletter p{
+  margin-bottom: 0.8rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  margin-bottom: 1rem;
+  font-weight: 300;
+  font-size: 0.7rem;
+}
+
+.footer-bottom a:hover {
+  color: #fff;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  margin-right: 0.8rem
+}
+
+form input[type="email"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 80%;
+  margin-bottom: 1rem;
+  background: #000000;
+  border: 1px solid #333;
+  color: #fff;
+}
+
+

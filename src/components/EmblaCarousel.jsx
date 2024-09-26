@@ -1,10 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
-import { Categories } from "../categories";
+import useEmblaCarousel from "embla-carousel-react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { CategoryContext } from "../App";
 
 import {
   NextButton,
@@ -64,10 +61,14 @@ const EmblaCarousel = ({ options }) => {
       .on("reInit", () => setIsPlaying(autoScroll.isPlaying()));
   }, [emblaApi]);
 
-  useEffect(() => {
+  function getCategories() {
     fetch(`https://json-sever-vercel.vercel.app/categories`)
       .then((res) => res.json())
       .then((categories) => setCategories(categories));
+  }
+
+  useEffect(() => {
+    getCategories();
   }, []);
 
   return (

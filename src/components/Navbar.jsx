@@ -1,6 +1,7 @@
 import search from "../assets/search.png";
 import cart from "../assets/cart.png";
 import login from "../assets/login.png";
+import apple from "../assets/apple-logo.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -50,6 +51,11 @@ export default function Navbar() {
                 <img src={login} alt="Login" />
               </a>
             </li>
+
+            <div className="premium">
+              <img className="apple" src={apple} />
+              <p>Premium Reseller</p>
+            </div>
 
             <li className="nav-btn">
               <a onClick={showResNavbar}>

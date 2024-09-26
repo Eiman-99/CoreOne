@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { CategoryContext } from "../App";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 
