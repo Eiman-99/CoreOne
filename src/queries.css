@@ -18,45 +18,14 @@
 }
 
 @media (max-width: 992px) {
-  .navbar .premium{
-    display: none;
+  .custom-dropdown .dropdown-menu{
+      
+  
   }
-    .nav-btn {
-      display: block;
-    }
-  
-    .responsive-nav {
-      background-color: #0000008e;
-      backdrop-filter: blur(10px);
-    }
 
-    @keyframes dropMenu {
-        0%{
-            height: 20vh;
-        }
-        100%{
-            height: 100vh;
-        }
-    }
-  
-    .primary-list {
-      flex-direction: column;
-      position: absolute;
-      top: 4rem;
-      transition: height 1s ease;
-      display: none; 
-      animation: dropList 2s forwards;
-      gap: 1rem;
-    }
-
-    @keyframes dropList {
-        0%{
-            opacity: 0;
-        }
-        100%{
-            opacity :100%;
-        }
-    }
+  .navbar{
+    background: rgb(15, 15, 15) ;
+  }
   }
 
   
