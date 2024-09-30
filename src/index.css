@@ -110,8 +110,7 @@ nav img{
 }
 
 .hero img{
-  max-width: 17rem;
-  transform: rotate(-30deg);
+  max-width: 32rem;
 }
 
 .hero .productName{
@@ -124,11 +123,13 @@ nav img{
 .hero .productName p{
   font-size: 3rem;
   font-weight: 400;
+  margin-bottom: 0;
 }
 
 .hero .productName h4{
   margin-left: 0.5rem;
   display: inline;
+  font-size: 1.2rem;
   font-weight: 300;
 }
 
