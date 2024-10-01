@@ -46,7 +46,7 @@ export default function Footer() {
             <a>sales@coreone.com</a>
           </p>
           <p>
-            Polygon, Sodic West,
+            Hyde Park, New Cairo,
             <br /> Beverly Hills,
             <br /> Cairo, EG
           </p>

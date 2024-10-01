@@ -350,13 +350,11 @@ nav img{
 
 .footer-content {
   margin: auto;
-  width: 90%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
-
   
 .footer-section img {
   width: 1rem;

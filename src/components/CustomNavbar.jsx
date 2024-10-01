@@ -68,7 +68,7 @@ function CustomNavbar() {
           </Nav>
           <Nav>
             <Nav.Link eventKey={2} href="#memes" className="mx-3">
-              <img src={search} />
+              <img className="search" src={search} />
             </Nav.Link>
             <Nav.Link eventKey={2} href="#memes" className="mx-3">
               <img src={cart} />
