@@ -12,6 +12,11 @@
   .navbar .search{
     display: none;
   }
+
+  .footer-content {
+    margin: auto;
+    width: 90%;
+  }
   }
 
 @media (max-width: 962px) {
