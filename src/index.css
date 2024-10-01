@@ -105,18 +105,27 @@ nav img{
 /* Latest Section */
 .hero{
   text-align: center;
+  height: 100vh;
+}
+
+.carousel-item{
+  height: 100vh;
   position: relative;
-  height: 80vh;
+}
+
+.hero .img-container{
+  max-width: 24rem;
+  margin: auto;
 }
 
 .hero img{
-  max-width: 32rem;
+  max-width: 100%;
 }
 
 .hero .productName{
   position: absolute;
-  bottom: 6%;
-  left: 6%;
+  bottom: 20%;
+  left: 10%;
   z-index: 1;
 }
 
@@ -136,19 +145,19 @@ nav img{
 /* Categories */
 
 #categories{
-  height: 90vh;
-  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10%;
 }
 
 #categories h2{
   text-align: center;
-  margin: 3rem 0;
   font-weight: 400;
+  margin-bottom: 10%;
 }
 
-.embla {
-  overflow: hidden;
-}
 .embla__container {
   display: flex;
 }
@@ -163,8 +172,13 @@ nav img{
   --slide-height: 19rem;
   --slide-spacing: 1rem;
   --slide-size: 45%;
-  margin-top: 6rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .embla__viewport {
   overflow: hidden;
 }
