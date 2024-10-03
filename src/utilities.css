@@ -1,6 +1,6 @@
 /* Variables */
 :root{
-    --main-color:#9c156c;
+    --main-color:#722657;
     --dark-color:#232323;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .primary:hover{
-    background: #9c156de9;
+    background: #853268;
     color: #fff;
 }
 
