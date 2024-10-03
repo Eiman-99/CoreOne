@@ -97,10 +97,18 @@ nav img{
   width: 1rem;
 }
 
-/* nav img:hover{
-  background:#000000;
+nav .nav-icons a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .nav-icons a:hover{
+  background:#ffffff2d;
   width: 2rem;
-} */
+  height: 2rem;
+  border-radius: 50%;
+}
 
 .navbar-blur{
   background: #000000b4;
