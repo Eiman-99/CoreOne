@@ -1,0 +1,142 @@
+/* Variables */
+:root{
+    --main-color:#9c156c;
+    --dark-color:#232323;
+}
+
+.btn{
+    text-align: center;
+    padding: 0.6rem 1rem;
+    width: 12rem;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+
+.primary{
+    background: var(--main-color);
+    color: #fff;
+}
+
+.primary:hover{
+    background: #9c156de9;
+    color: #fff;
+}
+
+.outline{
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+}
+
+.outline:hover{
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    background: none;
+}
+
+
+/* Footer */
+.footer {
+    background-color: #000000;
+    color: #ccc;
+    padding: 2rem 4rem;
+    border-top: 1px solid #232323;
+  }
+  
+  .footer-content {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+    
+  .footer-section img {
+    width: 1rem;
+    margin-right: 0.5rem;
+  }
+  
+  .footer-section h3 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: 400;
+  }
+  
+  .footer-section p, a{
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+    font-weight: 300;
+  }
+  
+  .footer-section a {
+    color: #ccc;
+    text-decoration: none;
+  }
+  
+  .footer-section a:hover {
+    color: #fff;
+  }
+  
+  .mobile-app{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mobile-app p{
+    display: inline;
+    margin-left: 0.5rem;
+  }
+  
+  .mobile-app a{
+    padding: 0.7rem 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    width: 8rem;
+    border: 1px solid #232323;
+  }
+  
+  .mobile-app a:hover{
+    background: #232323 ;
+  }
+  
+  .newsletter p{
+    margin-bottom: 0.8rem;
+  }
+  
+  .footer-bottom {
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+  }
+  
+  .footer-bottom p {
+    margin-bottom: 1rem;
+    font-weight: 300;
+    font-size: 0.7rem;
+  }
+  
+  .footer-bottom a:hover {
+    color: #fff;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .social-icons a {
+    margin-right: 0.8rem
+  }
+  
+  form input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 1rem;
+    background: #000000;
+    border: 1px solid #333;
+    color: #fff;
+  }
+  
+  
