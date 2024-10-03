@@ -97,10 +97,10 @@ nav img{
   width: 1rem;
 }
 
-nav img:hover{
+/* nav img:hover{
   background:#000000;
   width: 2rem;
-}
+} */
 
 .navbar-blur{
   background: #000000b4;
