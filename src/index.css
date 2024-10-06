@@ -408,12 +408,25 @@ nav .nav-icons .nav-link:hover{
   text-align: center;
 }
 
-.login .custom-form, .signup .custom-form{
+ .custom-form{
   margin: auto;
 }
 
-.login .custom-form input, .signup .custom-form input{
-  background: transparent;
-  border: 1px solid #fff;
-  color: #fff;
+.custom-form input{
+  background: transparent !important;
+  border: 1px solid #585858 !important;
+  color: #fff !important;
+  padding: 10px;
+  margin-bottom: 1rem;
 }
+
+.custom-form input::placeholder{
+  color: rgb(82, 82, 82) ;
+}
+
+.invalid{
+  color: rgb(255, 43, 43);
+  
+}
+
+

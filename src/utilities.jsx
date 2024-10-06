@@ -1,3 +1,4 @@
+import { faEllo } from "@fortawesome/free-brands-svg-icons";
 import { createContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -5,35 +6,54 @@ export const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
   const [users, setUsers] = useState([]);
+  const [valid, setValid] = useState(true);
+  const [validEmail, setValidEmail] = useState(true);
+  const [validPassword, setValidPassword] = useState(true);
 
-  function signup(email, password) {
+  function signup(userName, email, password) {
     const newUser = {
       id: uuidv4(),
-
+      userName,
       email,
       password,
       cart: [],
     };
 
     setUsers((prev) => {
-      if (email && password) {
-        if (!validateEmail(email)) {
-          alert("enter a valid email");
-          return prev;
-        }
-        const existingUser = prev.find((user) => user.email === email);
-        if (existingUser) {
-          alert("email already exists");
-          return prev;
-        } else {
-          const updatedUsers = [...users, newUser];
-          localStorage.setItem("users", JSON.stringify(updatedUsers));
-          return updatedUsers;
-        }
-      } else {
-        alert("Enter a valid email & password.");
+      // Validate inputs
+      if (!userName || !email || !password) {
+        setValid(false);
         return prev;
       }
+
+      setValid(true);
+
+      // Validate email format
+      if (!validateEmail(email)) {
+        setValidEmail(false);
+        return prev;
+      }
+      setValidEmail(true);
+
+      // Validate password length
+      if (password.length < 6) {
+        setValidPassword(false);
+        return prev;
+      }
+      setValidPassword(true);
+
+      // Check for existing user
+      const existingUser = prev.find((user) => user.email === email);
+      if (existingUser) {
+        alert("Email already exists");
+        return prev;
+      }
+
+      // Add new user
+      const updatedUsers = [...prev, newUser];
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+
+      return updatedUsers;
     });
   }
 
@@ -46,6 +66,8 @@ export default function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ signup }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ valid, validEmail, validPassword, signup }}>
+      {children}
+    </AuthContext.Provider>
   );
 }
