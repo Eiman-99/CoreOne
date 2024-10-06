@@ -399,3 +399,21 @@ nav .nav-icons .nav-link:hover{
 ::-webkit-scrollbar-thumb:hover {
   background: #272727; 
 }
+
+.login, .signup{
+  height: 100vh;
+}
+
+.login h3 ,.signup h3{
+  text-align: center;
+}
+
+.login .custom-form, .signup .custom-form{
+  margin: auto;
+}
+
+.login .custom-form input, .signup .custom-form input{
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}

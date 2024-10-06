@@ -79,13 +79,17 @@ function CustomNavbar() {
               id="collapsible-nav-dropdown"
               className="custom-dropdown mx-3"
             >
-              <NavDropdown.Item href="#action/3.1" className="btn primary">
-                Login
-              </NavDropdown.Item>
+              <Link to="/login">
+                <NavDropdown.Item href="#action/3.1" className="btn primary">
+                  Login
+                </NavDropdown.Item>
+              </Link>
               <p>Don't have an account?</p>
-              <NavDropdown.Item href="#action/3.2" className="btn outline">
-                Sign Up
-              </NavDropdown.Item>
+              <Link to="/signup">
+                <NavDropdown.Item href="#action/3.2" className="btn outline">
+                  Sign Up
+                </NavDropdown.Item>
+              </Link>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

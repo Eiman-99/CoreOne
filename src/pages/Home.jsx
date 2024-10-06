@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import EmblaCarousel from "../components/EmblaCarousel";
-import { Categories } from "../categories";
 import Carousel from "../components/Carousel";
 
 const OPTIONS = { loop: true };
@@ -14,7 +13,7 @@ export default function Home() {
       </section>
       <section id="categories">
         <h2>Categories</h2>
-        <EmblaCarousel Categories={Categories} options={OPTIONS} />
+        <EmblaCarousel options={OPTIONS} />
       </section>
     </>
   );
