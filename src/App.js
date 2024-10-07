@@ -13,7 +13,6 @@ import { useEffect } from "react";
 function App() {
   useEffect(() => {
     localStorage.clear();
-    console.log("Local storage cleared on app initialization.");
   }, []);
 
   return (
