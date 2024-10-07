@@ -400,16 +400,24 @@ nav .nav-icons .nav-link:hover{
   background: #272727; 
 }
 
-.login, .signup{
-  height: 100vh;
+.login,.signup{
+  padding: 1rem 0;
 }
 
 .login h3 ,.signup h3{
   text-align: center;
+  margin-top: 1.5rem;
+  font-size: large;
 }
 
  .custom-form{
+  max-width: 40%;
   margin: auto;
+  padding: 1rem 1.5rem;
+}
+
+label{
+  font-size: small;
 }
 
 .custom-form input{
@@ -418,6 +426,8 @@ nav .nav-icons .nav-link:hover{
   color: #fff !important;
   padding: 10px;
   margin-bottom: 1rem;
+  font-size: small;
+
 }
 
 .custom-form input::placeholder{
@@ -426,7 +436,51 @@ nav .nav-icons .nav-link:hover{
 
 .invalid{
   color: rgb(255, 43, 43);
-  
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.or{
+  display: flex;
+  justify-items: center;
+  align-content:center;
+  margin: 1.5rem 0;
+  gap: 1.5rem;
+}
+
+.or p{
+  font-size: smaller;
+  font-weight: 100;
+  color: #b6b6b6;
+}
+
+.hline{
+  width: 50%;
+  border-bottom: 1px solid #444444;
+  height: 12px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links img{
+  width: 1.5rem;
+}
+
+#back-to-login, #go-to-signup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: smaller;
+  font-weight: 200;
+  color: #ececec;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 

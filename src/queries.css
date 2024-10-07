@@ -17,6 +17,10 @@
     position: absolute;
     margin-top: 10px; 
   }
+  .custom-form{
+    margin: auto;
+    max-width: 70%;
+  }
   
   .footer-content {
     margin: auto;

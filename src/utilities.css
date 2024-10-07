@@ -22,6 +22,16 @@
     color: #fff;
 }
 
+.submit-btn{
+  margin-top: 1rem;
+  background: linear-gradient(90deg, #2687e9, #9a21f0,#722657);
+  border: none;
+  font-size: small;
+  padding: 12px;
+  line-height: 1.6;
+  border-radius: 5px;
+}
+
 .outline{
     border: 1px solid var(--main-color);
     color: var(--main-color);
