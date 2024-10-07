@@ -26,7 +26,7 @@ function SignuPage() {
         <h3>Sign Up</h3>
 
         {!valid && (
-          <div className="invalid">please fill out all fields to proceed</div>
+          <div className="invalid">Please fill out all fields to proceed</div>
         )}
         <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
           <Form.Label>Full Name</Form.Label>
