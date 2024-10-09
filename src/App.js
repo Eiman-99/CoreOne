@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import CustomNavbar from "./components/CustomNavbar";
 import Home from "./pages/Home";
@@ -9,15 +10,15 @@ import SignupPage from "./pages/SignupPage";
 import Footer from "./components/Footer";
 import AuthProvider from "./utilities";
 import { useEffect } from "react";
-
+import { ToastContainer } from "react-toastify";
 function App() {
-  useEffect(() => {
-    localStorage.clear();
-  }, []);
+  // useEffect(() => {
+  //   localStorage.clear();
+  // }, []);
 
   return (
-    <AuthProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
         <CustomNavbar />
         <Routes>
           <Route path="/category/:id" element={<CategoryPage />} />
@@ -25,9 +26,10 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/" element={<Home />} />
         </Routes>
+        <ToastContainer />
         <Footer />
-      </BrowserRouter>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
