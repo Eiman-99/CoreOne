@@ -8,9 +8,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import React, { useState, useEffect } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../utilities";
 
 function CustomNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const { isLoggedIn, logout } = useContext(AuthContext);
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -79,17 +83,37 @@ function CustomNavbar() {
               id="collapsible-nav-dropdown"
               className="custom-dropdown mx-3"
             >
-              <Link to="/login">
-                <NavDropdown.Item href="#action/3.1" className="btn primary">
-                  Login
-                </NavDropdown.Item>
-              </Link>
-              <p>Don't have an account?</p>
-              <Link to="/signup">
-                <NavDropdown.Item href="#action/3.2" className="btn outline">
-                  Sign Up
-                </NavDropdown.Item>
-              </Link>
+              {!isLoggedIn ? (
+                <>
+                  <Link to="/login">
+                    <NavDropdown.Item
+                      href="#action/3.1"
+                      className="btn primary"
+                    >
+                      Login
+                    </NavDropdown.Item>
+                  </Link>
+                  <p>Don't have an account?</p>
+                  <Link to="/signup">
+                    <NavDropdown.Item
+                      href="#action/3.2"
+                      className="btn outline"
+                    >
+                      Sign Up
+                    </NavDropdown.Item>
+                  </Link>
+                </>
+              ) : (
+                <Link to="/">
+                  <NavDropdown.Item
+                    href="#action/3.1"
+                    className="btn primary"
+                    onClick={logout}
+                  >
+                    Logout
+                  </NavDropdown.Item>
+                </Link>
+              )}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -12,9 +13,18 @@ export default function AuthProvider({ children }) {
   const [valid, setValid] = useState(true);
   const [validEmail, setValidEmail] = useState(true);
   const [validPassword, setValidPassword] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const localCurrentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (localCurrentUser) {
+      setCurrentUser(localCurrentUser);
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   function signup(userName, email, password) {
     const newUser = {
@@ -91,7 +101,11 @@ export default function AuthProvider({ children }) {
 
       if (currentUser) {
         setCurrentUser(currentUser);
-        console.log(currentUser);
+        setIsLoggedIn(true);
+
+        // Save the logged in user to localStorage
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
         navigate("/");
         toast.success(`Welcome ${currentUser.userName}`, {
           position: "top-center",
@@ -107,13 +121,35 @@ export default function AuthProvider({ children }) {
         });
       }
     } else {
-      alert("No users found. Please sign up first.");
+      alert("Email is not found. Please sign up first.");
     }
+  }
+
+  function logout() {
+    setCurrentUser(null);
+    setIsLoggedIn(false);
+    localStorage.removeItem("currentUser");
+    toast.success("You have successfully logged out", {
+      position: "top-center",
+      theme: "dark",
+      hideProgressBar: true,
+      pauseOnHover: false,
+      autoClose: 3000,
+    });
   }
 
   return (
     <AuthContext.Provider
-      value={{ users, valid, validEmail, validPassword, signup, login }}
+      value={{
+        users,
+        valid,
+        validEmail,
+        validPassword,
+        isLoggedIn,
+        signup,
+        login,
+        logout,
+      }}
     >
       {children}
     </AuthContext.Provider>
