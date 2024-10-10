@@ -483,4 +483,78 @@ label{
   margin-top: 1rem;
 }
 
+/* User Profile */
+.account-container {
+  width: 75%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.account-container h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom:2rem;
+  border-bottom: 1px solid #444
+}
+
+.account-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap:wrap;
+}
+
+.account-left{
+  margin: 0 2rem 2rem 0;
+}
+
+.account-left img{
+  width: 10rem;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+}
+
+.account-right {
+  width: 75%;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+
+.account-info {
+  font-size: 18px;
+  line-height: 1.6;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap: 1rem;
+  flex-wrap:wrap;
+  width: 75%;
+
+}
+
+.account-info p{
+}
+
+.account-info h6{
+  margin: 0.8rem 0 2.5rem 0;
+  font-weight: 300;
+  color: #f3f3f3;
+}
+
+
+
+.edit-profile a {
+  color: #2b7a78;
+  font-weight: 600;
+}
+
+
+
 

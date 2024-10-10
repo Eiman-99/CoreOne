@@ -26,10 +26,11 @@ export default function AuthProvider({ children }) {
     }
   }, []);
 
-  function signup(userName, email, password) {
+  function signup(userName, email, password, phoneNumber) {
     const newUser = {
       id: uuidv4(),
       userName,
+      phoneNumber,
       email,
       password,
       cart: [],
@@ -37,7 +38,7 @@ export default function AuthProvider({ children }) {
 
     setUsers((prev) => {
       // Validate inputs
-      if (!userName || !email || !password) {
+      if (!userName || !email || !password || !phoneNumber) {
         setValid(false);
         return prev;
       }
@@ -121,7 +122,9 @@ export default function AuthProvider({ children }) {
         });
       }
     } else {
-      alert("Email is not found. Please sign up first.");
+      toast.warn("User with this email is not found. Please sign up first.", {
+        position: "top-center",
+      });
     }
   }
 

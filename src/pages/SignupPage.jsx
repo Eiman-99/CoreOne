@@ -1,15 +1,15 @@
 import { Container } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import google from "../assets/google.png";
 import facebook from "../assets/facebook.png";
 import apple from "../assets/apple2.png";
 import { useState, useContext } from "react";
 import { AuthContext } from "../utilities";
+import { Row, Col, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function SignuPage() {
   const [userName, setUserName] = useState(null);
+  const [phoneNumber, setPhoneNumber] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
@@ -17,7 +17,7 @@ function SignuPage() {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    signup(userName, email, password);
+    signup(userName, email, password, phoneNumber);
   };
 
   return (
@@ -28,16 +28,35 @@ function SignuPage() {
         {!valid && (
           <div className="invalid">Please fill out all fields to proceed</div>
         )}
-        <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
-          <Form.Label>Full Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Full Name"
-            onChange={(e) => {
-              setUserName(e.target.value);
-            }}
-          />
-        </Form.Group>
+
+        <Row>
+          <Col md={6}>
+            <Form.Group className="mb-3 mt-3" controlId="formBasicFullName">
+              <Form.Label>Full Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Full Name"
+                onChange={(e) => {
+                  setUserName(e.target.value);
+                }}
+              />
+            </Form.Group>
+          </Col>
+
+          <Col md={6}>
+            <Form.Group className="mb-3 mt-3" controlId="formBasicPhoneNumber">
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control
+                type="tel"
+                placeholder="Phone Number"
+                onChange={(e) => {
+                  setPhoneNumber(e.target.value);
+                }}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -63,14 +82,17 @@ function SignuPage() {
             <div className="invalid">Minimum 6 characters</div>
           )}
         </Form.Group>
+
         <Button variant="primary" type="submit" className="submit-btn w-100">
           Sign Up
         </Button>
+
         <div className="or">
           <div className="hline"></div>
           <p>Or</p>
           <div className="hline"></div>
         </div>
+
         <div className="social-links">
           <a href="#" id="google">
             <img src={google} />

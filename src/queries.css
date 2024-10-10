@@ -22,6 +22,14 @@
     max-width: 70%;
   }
   
+  .account-details {
+    justify-content:center;
+  }
+
+  .account-info p{
+    margin-right: 2rem;
+  }
+
   .footer-content {
     margin: auto;
     width: 90%;
