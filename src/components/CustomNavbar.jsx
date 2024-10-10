@@ -2,6 +2,10 @@ import search from "../assets/search.png";
 import cart from "../assets/cart.png";
 import login from "../assets/login.png";
 import apple from "../assets/apple-logo.png";
+import profile from "../assets/profile.png";
+import favs from "../assets/star.png";
+import orders from "../assets/package.png";
+import exit from "../assets/logout.png";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -78,43 +82,69 @@ function CustomNavbar() {
               <img src={cart} />
             </Nav.Link>
 
-            <NavDropdown
-              title={<img src={login} />}
-              id="collapsible-nav-dropdown"
-              className="custom-dropdown mx-3"
-            >
-              {!isLoggedIn ? (
-                <>
-                  <Link to="/login">
-                    <NavDropdown.Item
-                      href="#action/3.1"
-                      className="btn primary"
-                    >
-                      Login
-                    </NavDropdown.Item>
-                  </Link>
-                  <p>Don't have an account?</p>
-                  <Link to="/signup">
-                    <NavDropdown.Item
-                      href="#action/3.2"
-                      className="btn outline"
-                    >
-                      Sign Up
-                    </NavDropdown.Item>
-                  </Link>
-                </>
-              ) : (
+            {!isLoggedIn ? (
+              <NavDropdown
+                title={<img src={login} />}
+                id="collapsible-nav-dropdown"
+                className="custom-dropdown mx-3"
+              >
+                <Link to="/login">
+                  <NavDropdown.Item href="#action/3.1" className="btn primary">
+                    Login
+                  </NavDropdown.Item>
+                </Link>
+                <p>Don't have an account?</p>
+                <Link to="/signup">
+                  <NavDropdown.Item href="#action/3.2" className="btn outline">
+                    Sign Up
+                  </NavDropdown.Item>
+                </Link>
+              </NavDropdown>
+            ) : (
+              <NavDropdown
+                title={<img src={login} />}
+                id="collapsible-nav-dropdown"
+                className="custom-dropdown loggedIn mx-3"
+              >
+                <Link to="/profile">
+                  <NavDropdown.Item
+                    href="#action/3.1"
+                    className="loggedIn-links"
+                  >
+                    <img src={profile} alt="" />
+                    My Account
+                  </NavDropdown.Item>
+                </Link>
+                <Link to="/favs">
+                  <NavDropdown.Item
+                    href="#action/3.1"
+                    className="loggedIn-links"
+                  >
+                    <img src={favs} alt="" />
+                    Favourites
+                  </NavDropdown.Item>
+                </Link>
+                <Link to="/orders">
+                  <NavDropdown.Item
+                    href="#action/3.1"
+                    className="loggedIn-links"
+                  >
+                    <img src={orders} alt="" />
+                    orders
+                  </NavDropdown.Item>
+                </Link>
                 <Link to="/">
                   <NavDropdown.Item
                     href="#action/3.1"
-                    className="btn primary"
+                    className="loggedIn-links border-none"
                     onClick={logout}
                   >
+                    <img src={exit} alt="" />
                     Logout
                   </NavDropdown.Item>
                 </Link>
-              )}
-            </NavDropdown>
+              </NavDropdown>
+            )}
           </Nav>
         </Navbar.Collapse>
         <Nav.Link

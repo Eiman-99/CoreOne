@@ -43,6 +43,29 @@
     background: none;
 }
 
+.loggedIn .dropdown-menu.show{
+  padding: 1rem 0 !important;
+}
+
+.loggedIn-links{
+  color: var(--main-color);
+  padding: 0.8rem 0 0.8rem 2rem;
+  border-bottom: 1px solid #f7e6f2;
+  margin: 0;
+  transition: all .5s ease;
+}
+
+.loggedIn-links:hover{
+  background: #f6e1ef;
+}
+
+.border-none {
+  border-bottom: none;
+}
+
+.loggedIn-links img{
+  margin-right: 1rem;
+}
 
 /* Footer */
 .footer {
