@@ -129,13 +129,13 @@ const CartPage = () => {
           </div>
           <div className="right">
             <div class="totals-item">
-              <span>100EGP</span>
+              <span>$20</span>
             </div>
             <div class="totals-item">
               <span>${calculateSubtotal()}</span>
             </div>
             <div class="totals-item">
-              <span class="total-amount">${calculateSubtotal() + 100}</span>
+              <span class="total-amount">${calculateSubtotal() + 20}</span>
             </div>
             <div class="totals-item">
               <span class="included-taxes">Included 14% Taxes</span>
