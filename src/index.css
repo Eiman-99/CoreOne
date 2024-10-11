@@ -539,20 +539,28 @@ label{
 
 }
 
-.account-info p{
-}
-
 .account-info h6{
   margin: 0.8rem 0 2.5rem 0;
   font-weight: 300;
   color: #f3f3f3;
 }
 
+.account-info input{
+  padding: 0.8rem 1rem;
+  background: none;
+  color: #f3f3f3;
+  border: 1px solid #383838;
+}
 
-
-.edit-profile a {
+.edit-profile button{
   color: #2b7a78;
   font-weight: 600;
+  background: none;
+  border: none;
+}
+
+.edit-profile .cancel{
+  margin-left: 2rem;
 }
 
 
