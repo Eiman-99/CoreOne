@@ -61,7 +61,7 @@ export default function UserProfile() {
 
   return (
     <div className="account-container">
-      <h1>My Account</h1>
+      <h1 className="header-container">My Account</h1>
       <div className="account-details">
         <div className="account-left">
           <img src={profile} alt="Profile" className="profile-picture" />

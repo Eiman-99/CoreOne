@@ -75,12 +75,14 @@ function CustomNavbar() {
             </Link>
           </Nav>
           <Nav className="nav-icons">
-            <Nav.Link eventKey={2} href="#memes" className="mx-3">
+            <Nav.Link href="#memes" className="mx-3">
               <img className="search" src={search} />
             </Nav.Link>
-            <Nav.Link eventKey={2} href="#memes" className="mx-3">
-              <img src={cart} />
-            </Nav.Link>
+            <Link to="/cart">
+              <Nav.Link href="#memes" className="mx-3">
+                <img src={cart} />
+              </Nav.Link>
+            </Link>
 
             {!isLoggedIn ? (
               <NavDropdown

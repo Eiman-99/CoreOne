@@ -85,10 +85,43 @@
    
   }
 
- 
+ /* Cart Page*/
+ @media (max-width: 768px) {
+  .cart-header {
+    display: none;
+  }
 
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
 
-  
-    
+  .item-details {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .item-image {
+    margin-right: 0;
+  }
+
+  .totals {
+    max-width: 100%;
+  }
+
+  .button-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .continue-shopping-btn,
+  .checkout-btn {
+    width: 100%;
+    font-size: 14px;
+  }
+ }
   
   
