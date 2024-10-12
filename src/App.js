@@ -12,6 +12,7 @@ import UserProfile from "./pages/UserProfile";
 import Footer from "./components/Footer";
 import AuthProvider from "./utilities";
 import { ToastContainer } from "react-toastify";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <CustomNavbar />
         <Routes>
           <Route path="/category/:id" element={<CategoryPage />} />
+          <Route path="/details/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
