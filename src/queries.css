@@ -122,6 +122,41 @@
     width: 100%;
     font-size: 14px;
   }
+
+  .product-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-image {
+    width: 80%;
+  }
+
+  .main-image {
+    width: 80%;
+  }
+
+  .product-details {
+    width: 100%;
+    text-align: center;
+  }
+
+  .color-options,
+  .storage-options,
+  .price-section {
+    justify-content: center;
+  }
+
+  .fav-btn{
+    position: absolute;
+    right: 2rem;
+  }
+
+  .feature h3{
+    width: 4rem;
+  }
  }
+
+ 
   
   

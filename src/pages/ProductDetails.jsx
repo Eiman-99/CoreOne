@@ -7,13 +7,11 @@ const ProductDetails = ({ onAddToCart }) => {
   const { id } = useParams();
   const [currentProduct, setCurrentProduct] = useState(null);
 
-  // Declare state hooks at the top level, outside of any conditions
-  const [selectedImg, setSelectedImg] = useState("img-1");
+  const [selectedImg, setSelectedImg] = useState("");
   const [selectedColor, setSelectedColor] = useState("navy");
-  const [selectedStorage, setSelectedStorage] = useState("256 GB");
+  const [selectedStorage, setSelectedStorage] = useState("");
   const [productPrice, setProductPrice] = useState("");
 
-  // Fetch product data based on ID from URL
   const getProduct = () => {
     fetch(`https://json-sever-vercel.vercel.app/categories`)
       .then((res) => res.json())
@@ -23,6 +21,8 @@ const ProductDetails = ({ onAddToCart }) => {
           .find((product) => product.id == id);
         setCurrentProduct(product);
         setSelectedImg(product.images[0].image);
+        setSelectedStorage(product.storage[0].size);
+        setProductPrice(product.storage[0].price);
       });
   };
 
@@ -30,7 +30,6 @@ const ProductDetails = ({ onAddToCart }) => {
     getProduct();
   }, [id]);
 
-  // If data is still loading, return a loading message
   if (!currentProduct) {
     return <div>Loading...</div>;
   }
@@ -39,11 +38,9 @@ const ProductDetails = ({ onAddToCart }) => {
     setSelectedColor(color);
   };
 
-  const handleStorageChange = (storage) => {
+  const handleStorageChange = (storage, price) => {
     setSelectedStorage(storage);
-    if (storage === "256 GB") setProductPrice(69999);
-    else if (storage === "512 GB") setProductPrice(79999);
-    else if (storage === "1 TB") setProductPrice(89999);
+    setProductPrice(price);
   };
 
   const handleImageChange = (img) => {
@@ -100,18 +97,20 @@ const ProductDetails = ({ onAddToCart }) => {
 
           {/* Storage Options */}
           <div className="storage-options">
-            {["256 GB", "512 GB", "1 TB"].map((storage) => (
+            {currentProduct.storage.map((item) => (
               <button
-                key={storage}
+                key={item.size}
                 className={`storage-button ${
-                  selectedStorage === storage ? "selected" : ""
+                  selectedStorage === item.size ? "selected" : ""
                 }`}
-                onClick={() => handleStorageChange(storage)}
+                onClick={() => handleStorageChange(item.size, item.price)}
               >
-                {storage}
+                {item.size}
               </button>
             ))}
           </div>
+
+          <p className="price">${productPrice}</p>
 
           {/* Add to Cart Button */}
           <button
