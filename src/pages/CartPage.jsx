@@ -1,66 +1,22 @@
-import { useState } from "react";
+// src/pages/CartPage.js
+import React from "react";
+import { useCart } from "../context/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import iphoneImg from "../assets/latestPhone.png";
-import macbookImg from "../assets/latestWatch.png";
-import airpodsImg from "../assets/latestAirpods.png";
 import { Link } from "react-router-dom";
 
 const CartPage = () => {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      name: "iphones",
-      description: "Full Face · Double Visor",
-      price: 50,
-      quantity: 4,
-      image: iphoneImg,
-    },
-    {
-      id: 2,
-      name: "macbooks",
-      description: "Black · Limited Edition",
-      price: 20,
-      quantity: 5,
-      image: macbookImg,
-    },
-    {
-      id: 3,
-      name: "airpods",
-      description: "Full HD · 60 FPS",
-      price: 70,
-      quantity: 2,
-      image: airpodsImg,
-    },
-  ]);
+  const { cartItems, removeFromCart, updateQuantity, calculateSubtotal } =
+    useCart();
 
-  // Function to increase item quantity
-  const increaseQuantity = (id) => {
-    const updatedItems = items.map((item) =>
-      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-    );
-    setItems(updatedItems);
+  const increaseQuantity = (id, currentQuantity) => {
+    updateQuantity(id, currentQuantity + 1);
   };
 
-  // Function to decrease item quantity
-  const decreaseQuantity = (id) => {
-    const updatedItems = items.map((item) =>
-      item.id === id && item.quantity > 1
-        ? { ...item, quantity: item.quantity - 1 }
-        : item
-    );
-    setItems(updatedItems);
-  };
-
-  // Remove item from the cart
-  const removeItem = (id) => {
-    const updatedItems = items.filter((item) => item.id !== id);
-    setItems(updatedItems);
-  };
-
-  // Calculate subtotal
-  const calculateSubtotal = () => {
-    return items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const decreaseQuantity = (id, currentQuantity) => {
+    if (currentQuantity > 1) {
+      updateQuantity(id, currentQuantity - 1);
+    }
   };
 
   return (
@@ -73,82 +29,87 @@ const CartPage = () => {
         <span>Total</span>
       </div>
       <div className="cart-items">
-        {items.map((item) => (
+        {cartItems.map((item) => (
           <div key={item.id} className="cart-item">
             <div className="item-details">
-              <img src={item.image} alt={item.name} className="item-image" />
+              <img
+                src={item.images[0].image}
+                alt={item.name}
+                className="item-image"
+              />
               <div className="item-info">
                 <h3>{item.name}</h3>
-                <p>{item.description}</p>
+                <p>{item.storage}</p>
               </div>
             </div>
             <div className="item-price">
-              <p>{item.price.toLocaleString()} EGP</p>
+              <p>${item.price.toLocaleString()}</p>
             </div>
             <div className="item-actions">
               <div className="quantity-controls">
                 <button
                   className="quantity-btn"
-                  onClick={() => decreaseQuantity(item.id)}
+                  onClick={() => decreaseQuantity(item.id, item.quantity)}
                 >
                   -
                 </button>
                 <p>{item.quantity}</p>
                 <button
                   className="quantity-btn"
-                  onClick={() => increaseQuantity(item.id)}
+                  onClick={() => increaseQuantity(item.id, item.quantity)}
                 >
                   +
                 </button>
               </div>
             </div>
             <div className="item-total">
-              <p>{(item.price * item.quantity).toLocaleString()} EGP</p>
+              <p>${(item.price * item.quantity).toLocaleString()}</p>
               <FontAwesomeIcon
                 icon={faTrashCan}
                 className="remove-btn"
-                onClick={() => removeItem(item.id)}
+                onClick={() => removeFromCart(item.id)}
               />
             </div>
           </div>
         ))}
       </div>
-      <div class="total-container">
-        <div class="totals">
+      <div className="total-container">
+        <div className="totals">
           <div className="left">
-            <div class="totals-item">
+            <div className="totals-item">
               <span>Shipping:</span>
             </div>
-            <div class="totals-item">
+            <div className="totals-item">
               <span>Subtotal:</span>
             </div>
-            <div class="totals-item">
-              <span class="total-amount">Total:</span>
-              <div></div>
+            <div className="totals-item">
+              <span className="total-amount">Total:</span>
             </div>
           </div>
           <div className="right">
-            <div class="totals-item">
+            <div className="totals-item">
               <span>$20</span>
             </div>
-            <div class="totals-item">
-              <span>${calculateSubtotal()}</span>
+            <div className="totals-item">
+              <span>${calculateSubtotal().toLocaleString()}</span>
             </div>
-            <div class="totals-item">
-              <span class="total-amount">${calculateSubtotal() + 20}</span>
+            <div className="totals-item">
+              <span className="total-amount">
+                ${(calculateSubtotal() + 20).toLocaleString()}
+              </span>
             </div>
-            <div class="totals-item">
-              <span class="included-taxes">Included 14% Taxes</span>
+            <div className="totals-item">
+              <span className="included-taxes">Included 14% Taxes</span>
             </div>
           </div>
         </div>
         <hr />
-        <div class="button-container">
+        <div className="button-container">
           <Link to="/">
-            <button class="continue-shopping-btn">Continue Shopping</button>
+            <button className="continue-shopping-btn">Continue Shopping</button>
           </Link>
           <Link to="/checkout">
-            <button class="checkout-btn">Check Out</button>{" "}
+            <button className="checkout-btn">Checkout</button>
           </Link>
         </div>
       </div>

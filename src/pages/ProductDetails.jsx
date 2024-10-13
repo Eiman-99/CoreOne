@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 import fav from "../assets/fav.png";
 
-const ProductDetails = ({ onAddToCart }) => {
+const ProductDetails = () => {
   const { id } = useParams();
   const [currentProduct, setCurrentProduct] = useState(null);
+  const { addToCart } = useCart();
 
   const [selectedImg, setSelectedImg] = useState("");
   const [selectedColor, setSelectedColor] = useState("navy");
@@ -115,7 +117,13 @@ const ProductDetails = ({ onAddToCart }) => {
           {/* Add to Cart Button */}
           <button
             className="add-to-cart"
-            onClick={() => onAddToCart(selectedStorage, productPrice)}
+            onClick={() =>
+              addToCart({
+                ...currentProduct,
+                storage: selectedStorage,
+                price: productPrice,
+              })
+            }
           >
             Add to Cart
           </button>
