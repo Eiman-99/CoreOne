@@ -15,6 +15,8 @@ import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../utilities";
 import Search from "./Search";
+import { useCart } from "../context/CartContext";
+import Badge from "react-bootstrap/Badge";
 
 function CustomNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,6 +24,7 @@ function CustomNavbar() {
 
   const { isLoggedIn, logout } = useContext(AuthContext);
 
+  const { cartItems } = useCart();
   const handleScroll = () => {
     const offset = window.scrollY;
     if (offset > 0) {
@@ -98,6 +101,12 @@ function CustomNavbar() {
               <Link to="/cart">
                 <Nav.Link href="#memes" className="mx-3">
                   <img src={cart} />
+
+                  {cartItems.length > 0 && (
+                    <Badge pill bg="danger">
+                      {cartItems.length}
+                    </Badge>
+                  )}
                 </Nav.Link>
               </Link>
 

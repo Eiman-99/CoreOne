@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useCart } from "../context/CartContext"; // Import useCart from CartContext
+import { useCart } from "../context/CartContext";
 
 const Checkout = () => {
-  const { cartItems, calculateSubtotal } = useCart(); // Destructure cartItems and calculateSubtotal from context
+  const { cartItems, calculateSubtotal } = useCart();
   const [paymentMethod, setPaymentMethod] = useState("Credit Card");
 
   const handlePaymentMethodChange = (e) => {
@@ -17,10 +17,9 @@ const Checkout = () => {
     extraNotes: "",
   });
 
-  const subtotal = calculateSubtotal();
-  const shippingCost = 20; // You can dynamically calculate this or set a constant
-  const discount = 39; // Add logic if you have discounts
-  const grandTotal = subtotal + shippingCost - discount;
+  const shippingCost = 20;
+  const taxes = calculateSubtotal() * 0.14;
+  const grandTotal = calculateSubtotal() + shippingCost + taxes;
 
   return (
     <div className="checkout-container">
@@ -150,20 +149,20 @@ const Checkout = () => {
           {cartItems.map((item) => (
             <div key={item.id} className="order-item">
               <p>
-                ${item.name} - {item.storage} - {item.quantity} x {item.price}{" "}
+                {item.name} - {item.storage} - {item.quantity} x {item.price}
               </p>
             </div>
           ))}
         </div>
 
         <div className="order-totals">
-          <p>Subtotal: ${subtotal.toLocaleString()} </p>
-          <p>Discount: ${discount.toLocaleString()} </p>
-          <p>Shipment Cost: ${shippingCost.toLocaleString()} </p>
-          <h3>Grand Total: ${grandTotal.toLocaleString()} </h3>
+          <p>Shipping: ${shippingCost.toLocaleString()} </p>
+          <p>Taxes (14%): ${taxes.toLocaleString()} </p>
+          <p>Subtotal: ${calculateSubtotal().toLocaleString()} </p>
+          <h3> Total: ${grandTotal.toLocaleString()} </h3>
         </div>
 
-        <button className="place-order">Place Order</button>
+        <button className="place-order-btn">Place Order</button>
       </div>
     </div>
   );

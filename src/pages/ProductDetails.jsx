@@ -15,7 +15,7 @@ const ProductDetails = () => {
   const [productPrice, setProductPrice] = useState("");
 
   const getProduct = () => {
-    fetch(`https://json-sever-vercel.vercel.app/categories`)
+    fetch("https://json-sever-vercel.vercel.app/categories")
       .then((res) => res.json())
       .then((categories) => {
         const product = categories
