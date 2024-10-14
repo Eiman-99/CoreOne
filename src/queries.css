@@ -13,6 +13,10 @@
    flex-direction: row;
   }
 
+  .search-field{
+    padding: 0.5rem 1rem;
+  }
+
   .custom-dropdown .dropdown-menu {
     position: absolute;
     margin-top: 10px; 

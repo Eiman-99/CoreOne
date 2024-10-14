@@ -172,5 +172,41 @@
     border: 1px solid #333;
     color: #fff;
   }
+
+ .search-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .search-field{
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 10px;
+ }
+
+ .search-field img{
+  width: 1.5rem;
+ }
+
+ .search-field input{
+  background: none;
+  border: none;
+  padding: 0.6rem 1rem;
+  color: #fff;
+  width: 50vw;
+ }
+
+ .search-field input:focus{
+  outline: none;
+ }
   
   
