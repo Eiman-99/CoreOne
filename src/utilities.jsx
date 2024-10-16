@@ -1,5 +1,4 @@
-import { createContext, useState, useContext } from "react";
-import { useEffect } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -8,7 +7,7 @@ import { useCart } from "./context/CartContext";
 export const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
-  const { cartItems, clearCart, loadCartForUser } = useCart();
+  const { cartItems, setCartItems } = useCart();
 
   const [users, setUsers] = useState(
     JSON.parse(localStorage.getItem("users")) || []
@@ -26,9 +25,26 @@ export default function AuthProvider({ children }) {
     if (localCurrentUser) {
       setCurrentUser(localCurrentUser);
       setIsLoggedIn(true);
-      loadCartForUser(localCurrentUser.cart || []);
+
+      const localUsers = JSON.parse(localStorage.getItem("users")) || [];
+      const user = localUsers.find((user) => user.id === localCurrentUser.id);
+      if (user) {
+        setCartItems(user.cart || []);
+      }
     }
   }, []);
+
+  // Sync cart changes to the current user's profile in localStorage
+  useEffect(() => {
+    if (currentUser) {
+      const updatedUsers = users.map((user) =>
+        user.id === currentUser.id ? { ...user, cart: cartItems } : user
+      );
+      setUsers(updatedUsers);
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+  }, [cartItems, currentUser, users]);
 
   function signup(userName, email, password, phoneNumber) {
     const newUser = {
@@ -46,7 +62,6 @@ export default function AuthProvider({ children }) {
         setValid(false);
         return prev;
       }
-
       setValid(true);
 
       // Validate email format
@@ -63,10 +78,8 @@ export default function AuthProvider({ children }) {
       }
       setValidPassword(true);
 
-      // Get local users (if present)
-      const localUsers = JSON.parse(localStorage.getItem("users")) || [];
-
       // Check for existing user
+      const localUsers = JSON.parse(localStorage.getItem("users")) || [];
       const existingUser = localUsers.find((user) => user.email === email);
       if (existingUser) {
         toast.error("Email already exists", {
@@ -76,7 +89,7 @@ export default function AuthProvider({ children }) {
         return prev;
       }
 
-      // Add new user
+      // Add new user and auto login
       const updatedUsers = [...prev, newUser];
       localStorage.setItem("users", JSON.stringify(updatedUsers));
       login(email, password);
@@ -107,8 +120,9 @@ export default function AuthProvider({ children }) {
       if (currentUser) {
         setCurrentUser(currentUser);
         setIsLoggedIn(true);
-        loadCartForUser(currentUser.cart || []);
-        // Save the logged in user to localStorage
+
+        setCartItems(currentUser.cart || []);
+
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
         navigate("/");
@@ -133,10 +147,18 @@ export default function AuthProvider({ children }) {
   }
 
   function logout() {
+    // Save the cart items for the current user before logging out
+    const updatedUsers = users.map((user) =>
+      user.id === currentUser.id ? { ...user, cart: cartItems } : user
+    );
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+
     setCurrentUser(null);
     setIsLoggedIn(false);
+    setCartItems([]);
     localStorage.removeItem("currentUser");
-    clearCart();
+    localStorage.removeItem("cartItems");
+
     toast.success("You have successfully logged out", {
       position: "top-center",
       theme: "dark",
