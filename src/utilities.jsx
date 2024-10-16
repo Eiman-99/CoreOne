@@ -37,12 +37,20 @@ export default function AuthProvider({ children }) {
   // Sync cart changes to the current user's profile in localStorage
   useEffect(() => {
     if (currentUser) {
-      const updatedUsers = users.map((user) =>
-        user.id === currentUser.id ? { ...user, cart: cartItems } : user
-      );
-      setUsers(updatedUsers);
-      localStorage.setItem("users", JSON.stringify(updatedUsers));
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      const existingUser = users.find((user) => user.id === currentUser.id);
+
+      // Only update if the cart has actually changed
+      if (
+        existingUser &&
+        JSON.stringify(existingUser.cart) !== JSON.stringify(cartItems)
+      ) {
+        const updatedUsers = users.map((user) =>
+          user.id === currentUser.id ? { ...user, cart: cartItems } : user
+        );
+        setUsers(updatedUsers);
+        localStorage.setItem("users", JSON.stringify(updatedUsers));
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      }
     }
   }, [cartItems, currentUser, users]);
 
