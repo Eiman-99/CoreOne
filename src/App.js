@@ -19,8 +19,8 @@ import { CartProvider } from "./context/CartContext";
 function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <CartProvider>
+      <CartProvider>
+        <AuthProvider>
           <CustomNavbar />
           <Routes>
             <Route path="/category/:id" element={<CategoryPage />} />
@@ -34,8 +34,8 @@ function App() {
           </Routes>
           <ToastContainer />
           <Footer />
-        </CartProvider>
-      </AuthProvider>
+        </AuthProvider>
+      </CartProvider>
     </BrowserRouter>
   );
 }

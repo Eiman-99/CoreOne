@@ -48,6 +48,14 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  const loadCartForUser = () => {
+    setCartItems(cartItems); // Load user's cart on login
+  };
+
   const calculateSubtotal = () => {
     return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   };
@@ -56,10 +64,13 @@ export const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cartItems,
+        setCartItems,
         addToCart,
         removeFromCart,
         updateQuantity,
         calculateSubtotal,
+        loadCartForUser,
+        clearCart,
       }}
     >
       {children}

@@ -1,12 +1,15 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useCart } from "./context/CartContext";
 
 export const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
+  const { cartItems, clearCart, loadCartForUser } = useCart();
+
   const [users, setUsers] = useState(
     JSON.parse(localStorage.getItem("users")) || []
   );
@@ -23,6 +26,7 @@ export default function AuthProvider({ children }) {
     if (localCurrentUser) {
       setCurrentUser(localCurrentUser);
       setIsLoggedIn(true);
+      loadCartForUser(localCurrentUser.cart || []);
     }
   }, []);
 
@@ -103,7 +107,7 @@ export default function AuthProvider({ children }) {
       if (currentUser) {
         setCurrentUser(currentUser);
         setIsLoggedIn(true);
-
+        loadCartForUser(currentUser.cart || []);
         // Save the logged in user to localStorage
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
@@ -132,6 +136,7 @@ export default function AuthProvider({ children }) {
     setCurrentUser(null);
     setIsLoggedIn(false);
     localStorage.removeItem("currentUser");
+    clearCart();
     toast.success("You have successfully logged out", {
       position: "top-center",
       theme: "dark",
@@ -150,8 +155,8 @@ export default function AuthProvider({ children }) {
         validPassword,
         isLoggedIn,
         currentUser,
-        setUsers,
         setCurrentUser,
+        setUsers,
         signup,
         login,
         logout,

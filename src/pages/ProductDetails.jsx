@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { AuthContext } from "../utilities";
 import fav from "../assets/fav.png";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [currentProduct, setCurrentProduct] = useState(null);
   const { addToCart } = useCart();
+  const { currentUser } = useContext(AuthContext);
 
   const [selectedImg, setSelectedImg] = useState("");
   const [selectedColor, setSelectedColor] = useState("navy");
@@ -49,6 +51,20 @@ const ProductDetails = () => {
     setSelectedImg(img);
   };
 
+  const handleAddToCart = () => {
+    // If user is not logged in => navigate to login page or show alert
+    if (!currentUser) {
+      alert("You must be logged in to add items to the cart.");
+      navigate("/login");
+    } else {
+      addToCart({
+        ...currentProduct,
+        storage: selectedStorage,
+        price: productPrice,
+      });
+    }
+  };
+
   return (
     <div className="product-page">
       <h1 className="header-container">{currentProduct.name}</h1>
@@ -69,12 +85,9 @@ const ProductDetails = () => {
                   selectedImg === img.image ? "selected-thumbnail" : ""
                 }`}
                 onClick={() => handleImageChange(img.image)}
+                key={index}
               >
-                <img
-                  key={index}
-                  src={img.image}
-                  alt={`Thumbnail ${index + 1}`}
-                />
+                <img src={img.image} alt={`Thumbnail ${index + 1}`} />
               </div>
             ))}
           </div>
@@ -114,17 +127,7 @@ const ProductDetails = () => {
 
           <p className="price">${productPrice}</p>
 
-          {/* Add to Cart Button */}
-          <button
-            className="add-to-cart"
-            onClick={() =>
-              addToCart({
-                ...currentProduct,
-                storage: selectedStorage,
-                price: productPrice,
-              })
-            }
-          >
+          <button className="add-to-cart" onClick={handleAddToCart}>
             Add to Cart
           </button>
         </div>
@@ -140,7 +143,7 @@ const ProductDetails = () => {
           <h3>Capacity</h3>
           <div className="info">
             {currentProduct.storage.map((item) => {
-              return <p>{item.size}</p>;
+              return <p key={item.size}>{item.size}</p>;
             })}
           </div>
         </div>
