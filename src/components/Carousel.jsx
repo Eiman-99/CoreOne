@@ -5,7 +5,7 @@ import latestWatch from "../assets/latestWatch.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faApple } from "@fortawesome/free-brands-svg-icons";
 
-function UncontrolledExample() {
+function UncontrolledCarousel() {
   return (
     <Carousel controls={false} indicators={false}>
       <Carousel.Item>
@@ -42,4 +42,4 @@ function UncontrolledExample() {
   );
 }
 
-export default UncontrolledExample;
+export default UncontrolledCarousel;

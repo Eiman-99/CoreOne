@@ -112,17 +112,20 @@ const ProductDetails = () => {
 
           {/* Storage Options */}
           <div className="storage-options">
-            {currentProduct.storage.map((item) => (
-              <button
-                key={item.size}
-                className={`storage-button ${
-                  selectedStorage === item.size ? "selected" : ""
-                }`}
-                onClick={() => handleStorageChange(item.size, item.price)}
-              >
-                {item.size}
-              </button>
-            ))}
+            {currentProduct.storage.map(
+              (item) =>
+                item.size !== "" && (
+                  <button
+                    key={item.size}
+                    className={`storage-button ${
+                      selectedStorage === item.size ? "selected" : ""
+                    }`}
+                    onClick={() => handleStorageChange(item.size, item.price)}
+                  >
+                    {item.size}
+                  </button>
+                )
+            )}
           </div>
 
           <p className="price">${productPrice}</p>
@@ -139,26 +142,58 @@ const ProductDetails = () => {
       </div>
       <div className="product-specs">
         <h1 className="header-container">Specifications</h1>
-        <div className="feature">
-          <h3>Capacity</h3>
-          <div className="info">
-            {currentProduct.storage.map((item) => {
-              return <p key={item.size}>{item.size}</p>;
-            })}
+
+        {/* Capacity */}
+        {currentProduct.storage.some((item) => item.size) && (
+          <div className="feature">
+            <h3>Capacity</h3>
+            <div className="info">
+              {currentProduct.storage.map(
+                (item) => item.size && <p key={item.size}>{item.size}</p>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="feature">
-          <h3>Display</h3>
-          <div className="info">
-            <p>{currentProduct.display}</p>
+        )}
+
+        {/* Display */}
+        {currentProduct.display && (
+          <div className="feature">
+            <h3>Display</h3>
+            <div className="info">
+              <p>{currentProduct.display}</p>
+            </div>
           </div>
-        </div>
-        <div className="feature">
-          <h3>Processor</h3>
-          <div className="info">
-            <p>{currentProduct.processor}</p>
+        )}
+
+        {/* Processor */}
+        {currentProduct.processor && (
+          <div className="feature">
+            <h3>Processor</h3>
+            <div className="info">
+              <p>{currentProduct.processor}</p>
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* Features */}
+        {currentProduct.features && (
+          <div className="feature">
+            <h3>Features</h3>
+            <div className="info">
+              <p>{currentProduct.features}</p>
+            </div>
+          </div>
+        )}
+
+        {/* Battery Life */}
+        {currentProduct.batteryLife && (
+          <div className="feature">
+            <h3>Battery Life</h3>
+            <div className="info">
+              <p>{currentProduct.batteryLife}</p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
