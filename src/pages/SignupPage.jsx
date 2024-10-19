@@ -94,15 +94,15 @@ function SignuPage() {
         </div>
 
         <div className="social-links">
-          <a href="#" id="google">
+          <Link href="#" id="google">
             <img src={google} />
-          </a>
-          <a href="#" id="facebook">
+          </Link>
+          <Link href="#" id="facebook">
             <img src={facebook} />
-          </a>
-          <a href="#" id="github">
+          </Link>
+          <Link href="#" id="github">
             <img src={apple} />
-          </a>
+          </Link>
         </div>
 
         <p id="back-to-login">

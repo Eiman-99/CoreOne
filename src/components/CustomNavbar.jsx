@@ -23,10 +23,9 @@ function CustomNavbar() {
   const [showSearch, setShowSearch] = useState(false);
 
   const { isLoggedIn, logout } = useContext(AuthContext);
-
   const location = useLocation();
-
   const { cartItems } = useCart();
+
   const handleScroll = () => {
     const offset = window.scrollY;
     if (offset > 0) {
@@ -73,130 +72,110 @@ function CustomNavbar() {
         style={{ margin: "0" }}
       >
         <Container>
-          <Link to="/">
-            <Navbar.Brand href="#home" className="logo">
-              CoreOne
-            </Navbar.Brand>
-          </Link>
+          <Navbar.Brand as={Link} to="/" className="logo">
+            CoreOne
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="justify-content-center flex-grow-1 ">
-              <Link to="/">
-                <Nav.Link href="/" className="mx-3 custom-style">
-                  Latest
-                </Nav.Link>
-              </Link>
+              <Nav.Link as={Link} to="/" className="mx-3 custom-style">
+                Latest
+              </Nav.Link>
 
               {location.pathname === "/" ? (
                 <Nav.Link href="#categories" className="mx-3">
                   Categories
                 </Nav.Link>
               ) : (
-                <Link to="/#categories">
-                  <Nav.Link href="/#categories" className="mx-3">
-                    Categories
-                  </Nav.Link>
-                </Link>
+                <Nav.Link as={Link} to="/#categories" className="mx-3">
+                  Categories
+                </Nav.Link>
               )}
 
-              <Link to="/about">
-                <Nav.Link href="#g" className="mx-3">
-                  About
-                </Nav.Link>
-              </Link>
-              <Link to="/support">
-                <Nav.Link href="#v" className="mx-3">
-                  Support
-                </Nav.Link>
-              </Link>
-            </Nav>
-            <Nav className="nav-icons">
-              <Nav.Link
-                href="#memes"
-                className="mx-3"
-                onClick={handleSearchClick}
-              >
-                <img className="search" src={search} />
+              <Nav.Link as={Link} to="/about" className="mx-3">
+                About
               </Nav.Link>
-              <Link to="/cart">
-                <Nav.Link href="#memes" className="mx-3">
-                  <img src={cart} />
 
-                  {cartItems.length > 0 && (
-                    <Badge pill bg="danger">
-                      {cartItems.length}
-                    </Badge>
-                  )}
-                </Nav.Link>
-              </Link>
+              <Nav.Link as={Link} to="/support" className="mx-3">
+                Support
+              </Nav.Link>
+            </Nav>
+
+            <Nav className="nav-icons">
+              <Nav.Link className="mx-3" onClick={handleSearchClick}>
+                <img className="search" src={search} alt="Search" />
+              </Nav.Link>
+
+              <Nav.Link as={Link} to="/cart" className="mx-3">
+                <img src={cart} alt="Cart" />
+                {cartItems.length > 0 && (
+                  <Badge pill bg="danger">
+                    {cartItems.length}
+                  </Badge>
+                )}
+              </Nav.Link>
 
               {!isLoggedIn ? (
                 <NavDropdown
-                  title={<img src={login} />}
+                  title={<img src={login} alt="Login" />}
                   id="collapsible-nav-dropdown"
                   className="custom-dropdown mx-3"
                 >
-                  <Link to="/login">
-                    <NavDropdown.Item
-                      href="#action/3.1"
-                      className="btn primary"
-                    >
-                      Login
-                    </NavDropdown.Item>
-                  </Link>
+                  <NavDropdown.Item
+                    as={Link}
+                    to="/login"
+                    className="btn primary"
+                  >
+                    Login
+                  </NavDropdown.Item>
                   <p>Don't have an account?</p>
-                  <Link to="/signup">
-                    <NavDropdown.Item
-                      href="#action/3.2"
-                      className="btn outline"
-                    >
-                      Sign Up
-                    </NavDropdown.Item>
-                  </Link>
+                  <NavDropdown.Item
+                    as={Link}
+                    to="/signup"
+                    className="btn outline"
+                  >
+                    Sign Up
+                  </NavDropdown.Item>
                 </NavDropdown>
               ) : (
                 <NavDropdown
-                  title={<img src={login} />}
+                  title={<img src={login} alt="Account" />}
                   id="collapsible-nav-dropdown"
                   className="custom-dropdown loggedIn mx-3"
                 >
-                  <Link to="/profile">
-                    <NavDropdown.Item
-                      href="#action/3.1"
-                      className="loggedIn-links"
-                    >
-                      <img src={profile} alt="" />
-                      My Account
-                    </NavDropdown.Item>
-                  </Link>
-                  <Link to="/favs">
-                    <NavDropdown.Item
-                      href="#action/3.1"
-                      className="loggedIn-links"
-                    >
-                      <img src={favs} alt="" />
-                      Favourites
-                    </NavDropdown.Item>
-                  </Link>
-                  <Link to="/orders">
-                    <NavDropdown.Item
-                      href="#action/3.1"
-                      className="loggedIn-links"
-                    >
-                      <img src={orders} alt="" />
-                      orders
-                    </NavDropdown.Item>
-                  </Link>
-                  <Link to="/">
-                    <NavDropdown.Item
-                      href="#action/3.1"
-                      className="loggedIn-links border-none"
-                      onClick={logout}
-                    >
-                      <img src={exit} alt="" />
-                      Logout
-                    </NavDropdown.Item>
-                  </Link>
+                  <NavDropdown.Item
+                    as={Link}
+                    to="/profile"
+                    className="loggedIn-links"
+                  >
+                    <img src={profile} alt="Profile" />
+                    My Account
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    to="/favs"
+                    className="loggedIn-links"
+                  >
+                    <img src={favs} alt="Favourites" />
+                    Favourites
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    to="/orders"
+                    className="loggedIn-links"
+                  >
+                    <img src={orders} alt="Orders" />
+                    Orders
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    to="/"
+                    className="loggedIn-links border-none"
+                    onClick={logout}
+                  >
+                    <img src={exit} alt="Logout" />
+                    Logout
+                  </NavDropdown.Item>
                 </NavDropdown>
               )}
             </Nav>
@@ -206,7 +185,7 @@ function CustomNavbar() {
             className="mx-3 premium d-none d-lg-flex"
             style={{ cursor: "default" }}
           >
-            <img className="apple" src={apple} />
+            <img className="apple" src={apple} alt="Apple Logo" />
             <p className="custom-font">Premium Reseller</p>
           </Nav.Link>
         </Container>

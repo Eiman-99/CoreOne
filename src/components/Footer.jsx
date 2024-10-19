@@ -6,6 +6,7 @@ import youtube from "../assets/social.png";
 import phone from "../assets/phone.png";
 import apple from "../assets/apple.png";
 import googlePlay from "../assets/google-play.png";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -14,25 +15,25 @@ export default function Footer() {
         <div className="footer-section">
           <h3>Coreone Stores</h3>
           <p>
-            <a href="#">About us</a>
+            <Link href="#">About us</Link>
           </p>
           <p>
-            <a href="#">Contact us</a>
+            <Link href="#">Contact us</Link>
           </p>
           <p>
-            <a href="#">Support</a>
+            <Link href="#">Support</Link>
           </p>
           <p>
-            <a href="#">Return Policy</a>
+            <Link href="#">Return Policy</Link>
           </p>
           <p>
-            <a href="#">Privacy Policy</a>
+            <Link href="#">Privacy Policy</Link>
           </p>
           <p>
-            <a href="#">Shipping Policy</a>
+            <Link href="#">Shipping Policy</Link>
           </p>
           <p>
-            <a href="#">FAQs</a>
+            <Link href="#">FAQs</Link>
           </p>
         </div>
 
@@ -43,7 +44,7 @@ export default function Footer() {
             17985
           </h3>
           <p>
-            <a>sales@coreone.com</a>
+            <Link>sales@coreone.com</Link>
           </p>
           <p>
             Hyde Park, New Cairo,
@@ -54,14 +55,14 @@ export default function Footer() {
 
         <div className="footer-section mobile-app">
           <h3>Coreone Mobile App</h3>
-          <a href="#">
+          <Link href="#">
             <img src={apple} alt="Download on the App Store" />
             <p>App Store</p>
-          </a>
-          <a href="#">
+          </Link>
+          <Link href="#">
             <img src={googlePlay} alt="Get it on Google Play" />
             <p>Google Play</p>
-          </a>
+          </Link>
         </div>
 
         <div className="footer-section newsletter">
@@ -75,21 +76,21 @@ export default function Footer() {
             />
           </form>
           <div className="social-icons">
-            <a href="#">
+            <Link href="#">
               <img src={facebook} alt="Facebook" />
-            </a>
-            <a href="#">
+            </Link>
+            <Link href="#">
               <img src={instagram} alt="Instagram" />
-            </a>
-            <a href="#">
+            </Link>
+            <Link href="#">
               <img src={twitter} alt="Twitter" />
-            </a>
-            <a href="#">
+            </Link>
+            <Link href="#">
               <img src={linkedin} alt="LinkedIn" />
-            </a>
-            <a href="#">
+            </Link>
+            <Link href="#">
               <img src={youtube} alt="YouTube" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
