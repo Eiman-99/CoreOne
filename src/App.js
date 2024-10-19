@@ -18,6 +18,7 @@ import { CartProvider } from "./context/CartContext";
 import { useEffect, useState } from "react";
 import Loading from "./pages/Loading";
 import SupportPage from "./pages/SupportPage";
+import AboutUsPage from "./pages/AboutUsPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -44,6 +45,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/profile" element={<UserProfile />} />
+            <Route path="/about" element={<AboutUsPage />} />
             <Route path="/support" element={<SupportPage />} />
             <Route path="/" element={<Home />} />
           </Routes>
