@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { AuthContext } from "../utilities";
 import fav from "../assets/fav.png";
+import Loading from "./Loading";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -35,7 +36,7 @@ const ProductDetails = () => {
   }, [id]);
 
   if (!currentProduct) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   const handleColorChange = (color) => {
@@ -66,7 +67,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="product-page">
+    <div className="product-page section-py">
       <h1 className="header-container">{currentProduct.name}</h1>
       <div className="product-container">
         <div className="product-image">

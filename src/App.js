@@ -15,8 +15,21 @@ import AuthProvider from "./utilities";
 import { ToastContainer } from "react-toastify";
 import ProductDetails from "./pages/ProductDetails";
 import { CartProvider } from "./context/CartContext";
+import { useEffect, useState } from "react";
+import Loading from "./pages/Loading";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <BrowserRouter>
       <CartProvider>

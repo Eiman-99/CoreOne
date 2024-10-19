@@ -29,7 +29,7 @@ const CartPage = () => {
   ).toFixed(2);
 
   return (
-    <div className="cart-page">
+    <div className="cart-page section-py">
       <h1 className="header-container">Your Cart</h1>
       {cartItems.length === 0 ? (
         <div className="empty-cart-container">

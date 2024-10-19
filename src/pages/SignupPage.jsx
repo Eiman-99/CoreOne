@@ -21,7 +21,7 @@ function SignuPage() {
   };
 
   return (
-    <section className="signup">
+    <section className="signup section-py">
       <Form className="custom-form" onSubmit={handleSignup}>
         <h3>Sign Up</h3>
 

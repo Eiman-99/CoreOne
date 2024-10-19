@@ -8,7 +8,7 @@ const OPTIONS = { loop: true };
 export default function Home() {
   return (
     <>
-      <section className="hero">
+      <section className="hero" id="latest">
         <Carousel />
       </section>
       <section id="categories">

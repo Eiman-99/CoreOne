@@ -22,7 +22,7 @@ const Checkout = () => {
   const grandTotal = calculateSubtotal() + shippingCost + taxes;
 
   return (
-    <div className="checkout-container">
+    <div className="checkout-container section-py">
       <div className="checkout-form">
         <h2>Shipping Address</h2>
         <form>

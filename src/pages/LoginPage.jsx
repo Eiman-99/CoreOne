@@ -19,7 +19,7 @@ function LoginPage() {
   }
 
   return (
-    <section className="login">
+    <section className="login section-py">
       <Form className="custom-form" onSubmit={handleLogin}>
         <h3>Login</h3>
         {!valid && (

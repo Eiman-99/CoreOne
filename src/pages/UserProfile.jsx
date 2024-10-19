@@ -60,7 +60,7 @@ export default function UserProfile() {
   }
 
   return (
-    <div className="account-container">
+    <div className="account-container section-py">
       <h1 className="header-container">My Account</h1>
       <div className="account-details">
         <div className="account-left">

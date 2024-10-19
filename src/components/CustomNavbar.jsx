@@ -6,7 +6,7 @@ import profile from "../assets/profile.png";
 import favs from "../assets/star.png";
 import orders from "../assets/package.png";
 import exit from "../assets/logout.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -23,6 +23,8 @@ function CustomNavbar() {
   const [showSearch, setShowSearch] = useState(false);
 
   const { isLoggedIn, logout } = useContext(AuthContext);
+
+  const location = useLocation();
 
   const { cartItems } = useCart();
   const handleScroll = () => {
@@ -50,6 +52,16 @@ function CustomNavbar() {
     setShowSearch(false);
     document.body.style.overflow = "auto";
   }
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <>
       <Navbar
@@ -58,7 +70,7 @@ function CustomNavbar() {
         expand="lg"
         variant="dark"
         className={`py-2 ${isScrolled ? "navbar-blur" : ""}`}
-        style={{ margin: 0 }}
+        style={{ margin: "0" }}
       >
         <Container>
           <Link to="/">
@@ -70,14 +82,22 @@ function CustomNavbar() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="justify-content-center flex-grow-1 ">
               <Link to="/">
-                <Nav.Link href="#features" className="mx-3 custom-style">
+                <Nav.Link href="/" className="mx-3 custom-style">
                   Latest
                 </Nav.Link>
               </Link>
 
-              <Nav.Link href="#categories" className="mx-3">
-                Categories
-              </Nav.Link>
+              {location.pathname === "/" ? (
+                <Nav.Link href="#categories" className="mx-3">
+                  Categories
+                </Nav.Link>
+              ) : (
+                <Link to="/#categories">
+                  <Nav.Link href="/#categories" className="mx-3">
+                    Categories
+                  </Nav.Link>
+                </Link>
+              )}
 
               <Link to="/about">
                 <Nav.Link href="#g" className="mx-3">
