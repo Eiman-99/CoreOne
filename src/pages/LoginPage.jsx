@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import google from "../assets/google.png";
@@ -7,11 +6,15 @@ import apple from "../assets/apple2.png";
 import { useState, useContext } from "react";
 import { AuthContext } from "../utilities";
 import { Link } from "react-router-dom";
+import InputGroup from "react-bootstrap/InputGroup";
+import revealed from "../assets/revealed.png";
+import hidden from "../assets/hidden.png";
 
 function LoginPage() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const { users, login, valid } = useContext(AuthContext);
+  const { users, login, valid, isHidden, revealPassword } =
+    useContext(AuthContext);
 
   function handleLogin(e) {
     e.preventDefault();
@@ -38,13 +41,21 @@ function LoginPage() {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+          <InputGroup>
+            <img
+              src={isHidden ? revealed : hidden}
+              alt="icon"
+              className="input-icon"
+              onClick={revealPassword}
+            />
+            <Form.Control
+              type={isHidden ? "password" : "text"}
+              placeholder="Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </InputGroup>
         </Form.Group>
 
         <Button variant="primary" type="submit" className="submit-btn w-100">

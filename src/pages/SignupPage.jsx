@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import google from "../assets/google.png";
 import facebook from "../assets/facebook.png";
 import apple from "../assets/apple2.png";
@@ -6,6 +5,9 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../utilities";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import InputGroup from "react-bootstrap/InputGroup";
+import revealed from "../assets/revealed.png";
+import hidden from "../assets/hidden.png";
 
 function SignuPage() {
   const [userName, setUserName] = useState(null);
@@ -13,7 +15,8 @@ function SignuPage() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  const { valid, validEmail, validPassword, signup } = useContext(AuthContext);
+  const { isHidden, valid, validEmail, validPassword, signup, revealPassword } =
+    useContext(AuthContext);
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -69,15 +72,27 @@ function SignuPage() {
           {!validEmail && <div className="invalid">Enter a valid email</div>}
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group
+          className="mb-3"
+          controlId="formBasicPassword"
+          style={{ position: "relative" }}
+        >
           <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+          <InputGroup>
+            <img
+              src={isHidden ? revealed : hidden}
+              alt="icon"
+              className="input-icon"
+              onClick={revealPassword}
+            />
+            <Form.Control
+              type={isHidden ? "password" : "text"}
+              placeholder="Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </InputGroup>
           {!validPassword && (
             <div className="invalid">Minimum 6 characters</div>
           )}

@@ -17,6 +17,11 @@ export default function AuthProvider({ children }) {
   const [validPassword, setValidPassword] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isHidden, setIsHidden] = useState(true);
+
+  function revealPassword() {
+    setIsHidden(!isHidden);
+  }
 
   const navigate = useNavigate();
 
@@ -185,11 +190,13 @@ export default function AuthProvider({ children }) {
         validPassword,
         isLoggedIn,
         currentUser,
+        isHidden,
         setCurrentUser,
         setUsers,
         signup,
         login,
         logout,
+        revealPassword,
       }}
     >
       {children}

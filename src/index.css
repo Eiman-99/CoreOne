@@ -430,7 +430,7 @@ label{
   padding: 10px;
   margin-bottom: 1rem;
   font-size: small;
-
+  border-radius: 5px !important;
 }
 
 .custom-form input::placeholder{
