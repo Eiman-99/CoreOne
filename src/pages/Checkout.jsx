@@ -58,7 +58,7 @@ const Checkout = () => {
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0; // return true if no errors
   };
-
+  //prevents the default form submission behavior
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -72,6 +72,31 @@ const Checkout = () => {
 
   return (
     <div className="checkout-container">
+      <div className="checkout-summary">
+        <h2>Your Order</h2>
+
+        <div className="order-items">
+          {cartItems.map((item) => (
+            <div key={item.id} className="order-item">
+              <h6>
+                {item.name} - {item.storage}{" "}
+              </h6>
+
+              <p>
+                {" "}
+                {item.quantity} x {item.price}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="order-totals">
+          <p>Shipping: $ {shippingCost.toLocaleString()} </p>
+          <p>Taxes ( 14% ): $ {taxes.toLocaleString()} </p>
+          <p>Subtotal: $ {calculateSubtotal().toLocaleString()} </p>
+          <h3>Total : $ {grandTotal.toLocaleString()} </h3>
+        </div>
+      </div>
       <div className="checkout-form">
         <h2>Shipping Address</h2>
         <form onSubmit={handleSubmit}>
@@ -253,27 +278,6 @@ const Checkout = () => {
             Place Order
           </button>
         </form>
-      </div>
-
-      <div className="checkout-summary">
-        <h2>Your Order</h2>
-
-        <div className="order-items">
-          {cartItems.map((item) => (
-            <div key={item.id} className="order-item">
-              <p>
-                {item.name} - {item.storage} - {item.quantity} x {item.price}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="order-totals">
-          <p>Shipping: $ {shippingCost.toLocaleString()} </p>
-          <p>Taxes ( 14% ): $ {taxes.toLocaleString()} </p>
-          <p>Subtotal: $ {calculateSubtotal().toLocaleString()} </p>
-          <h3>Total: $ {grandTotal.toLocaleString()} </h3>
-        </div>
       </div>
     </div>
   );

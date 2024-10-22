@@ -23,6 +23,7 @@ import AboutUsPage from "./pages/AboutUsPage";
 function App() {
   const [loading, setLoading] = useState(true);
 
+  // Display the initial loading for 3 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
