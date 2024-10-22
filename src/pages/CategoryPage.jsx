@@ -24,6 +24,7 @@ export default function CategoryPage() {
   if (!currentCategory) {
     return <Loading />;
   }
+
   return (
     <div className="categoryPage section-py">
       <div className="category-container">
